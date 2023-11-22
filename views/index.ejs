@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Átila Abreu</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script
+        src="https://static.trindadetecnologia.com.br:8443/scripts/indicacao-api.js?v=fba36419-6c3d-4b97-8d6d-955bd95a545a"></script>
+</head>
+
+<body class="bodyTudo">
+    <div class="container col-lg-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-fluid mb-3" src="/img/Logo1voceeminterlagos.png">
+                <form enctype="multipart/form-data" action="/enviadados" method="post">
+                    <div id="step_1" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle active"><span class="numbersteps">1</span></div>
+                            <div class="circle "><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="progress" style="height: 1px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p> Para participar do quiz, você deve aceitar o regulamento e preencher os dados abaixo: </p>
+                        <h4 class="titulostep"> Informações de contato</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nome:</label>
+                                <input type="text" class="form-control" name="nome" placeholder="Nome">
+                            </div>
+                            <div class="col-md-6">
+                                <label> O seu @ do instagram: </label>
+                                <input type="text" class="form-control" name="instagram" placeholder="@Instagram">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mt-3">
+                                <label>Número do eu CPF:</label>
+                                <div> 
+                                    <input type="number" class="form-control" name="cpf" placeholder="CPF" name="cpf" onblur="validarCPF(this)" maxlength="11">
+                                <span class="valid-feedback"></span>
+                                <span class="invalid-feedback"></span>
+                            
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="pergunta">COMO SOUBE DA CAMPANHA?</label>
+                            </div>
+                            <div class="radios">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="como_soube" id="Anuncio" value="Anúncio">
+                                    <label class="form-check-label" for="Anuncio">Anúncio</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="como_soube" id="PerfildoAtilaAbreu" value="Perfil do Átila Abreu">
+                                    <label class="form-check-label" for="PerfildoAtilaAbreu">Perfil do Átila Abreu</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="como_soube" id="PerfildaAllCross" value="Perfil da AllCross">
+                                    <label class="form-check-label" for="PerfildaAllCross">Perfil da AllCross</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="como_soube" id="PortaldeNoticias" value="Portal de notícias">
+                                    <label class="form-check-label" for="PortaldeNoticias">Portal de notícias</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="como_soube" id="Amigo" value="Amigo">
+                                    <label class="form-check-label" for="Amigo">Amigo</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div id="step_2" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle"><span class="numbersteps">1</span></div>
+                            <div class="circle active"><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">Quando foi a primeira vez que falamos sobre nossa parceria com o
+                                Átila em nosso feed?</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao1" name="respostaFeed"
+                                    value="24 de março de 2023">
+                                <label class="form-check-label" for="opcao1">24 de março de 2023</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao2" name="respostaFeed"
+                                    value="30 de março de 2023">
+                                <label class="form-check-label" for="opcao2">30 de março de 2023</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao3" name="respostaFeed"
+                                    value="31 de março de 2023">
+                                <label class="form-check-label" for="opcao3">31 de março de 2023</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step_3" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle "><span class="numbersteps">1</span></div>
+                            <div class="circle "><span class="numbersteps">2</span></div>
+                            <div class="circle active"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">Quantas vezes o Átila já apareceu em nosso feed?</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao4" name="quantidade" value="20">
+                                <label class="form-check-label" for="opcao4">20</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao5" name="quantidade" value="18">
+                                <label class="form-check-label" for="opcao5">18</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao6" name="quantidade" value="23">
+                                <label class="form-check-label" for="opcao6">23</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao7" name="quantidade" value="16">
+                                <label class="form-check-label" for="opcao7">16</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="step_4" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle "><span class="numbersteps">1</span></div>
+                            <div class="circle "><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle active"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">A AllCross realizou o evento O Papo é Saúde com o Átila recentemente
+                                na XV de novembro, em Curitiba. Neste dia, aparecemos em 3 emissoras de TV, você sabe
+                                quais são? (múltipla escolha)</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao8" name="emissoras"
+                                    value="Tribuna da Massa, RicTV e BandTV">
+                                <label class="form-check-label" for="opcao8">Tribuna da Massa, RicTV e BandTV</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao9" name="emissoras" value="RicTV, RPC e Tribuna da Massa">
+                                <label class="form-check-label" for="opcao9">RicTV, RPC e Tribuna da Massa</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao10" name="emissoras"
+                                    value="Tribuna da Massa, RPC e RicTV">
+                                <label class="form-check-label" for="opcao10">Tribuna da Massa, RPC e RicTV</label>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div id="step_5" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle"><span class="numbersteps">1</span></div>
+                            <div class="circle"><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle active"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">Em quais etapas Átila Abreu foi campeão?</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao12" name="etapas"
+                                    value="Silverado Stock Car 600 - GO e Velopark - RS">
+                                <label class="form-check-label" for="opcao12">Silverado Stock Car 600 - GO e Velopark - RS</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao13" name="etapas"
+                                    value="Tarumã - RS e Velopark - RS">
+                                <label class="form-check-label" for="opcao13">Tarumã - RS e Velopark - RS</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao14" name="etapas"
+                                    value="Velopark - RS e Silverado Stock Car 600 - GO">
+                                <label class="form-check-label" for="opcao14">Velopark - RS e Silverado Stock Car 600 -
+                                    GO</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao15" name="etapas"
+                                    value="Interlagos - SP e Tarumã - RS">
+                                <label class="form-check-label" for="opcao15">Interlagos - SP e Tarumã - RS</label>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="step_6" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle"><span class="numbersteps">1</span></div>
+                            <div class="circle"><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle active"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">A AllCross realizou um evento com a Pole Motors em Curitiba no mês
+                                de maio. Em qual local da cidade esse evento aconteceu?</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao16" name="local"
+                                    value="Shopping Pátio Batel">
+                                <label class="form-check-label" for="opcao16">Shopping Pátio Batel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao17" name="local"
+                                    value="Restaurante Madalosso">
+                                <label class="form-check-label" for="opcao17">Restaurante Madalosso</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao18" name="local"
+                                    value="Hard Rock Café">
+                                <label class="form-check-label" for="opcao18">Hard Rock Café</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao19" name="local"
+                                    value="XV de Novembro">
+                                <label class="form-check-label" for="opcao19">XV de Novembro</label>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="step_7" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle"><span class="numbersteps">1</span></div>
+                            <div class="circle"><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle active"><span class="numbersteps">7</span></div>
+                            <div class="circle"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">Qual foi o primeiro Influenciador convidado pela AllCross para
+                                assistir a Stock Car? (Dica: foi no mês de abril)</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao20" name="influenciador"
+                                    value="Júlio Cocielo">
+                                <label class="form-check-label" for="opcao20">Júlio Cocielo</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao21" name="influenciador"
+                                    value="Xenão">
+                                <label class="form-check-label" for="opcao21">Xenão</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao22" name="influenciador"
+                                    value="Leo Stronda">
+                                <label class="form-check-label" for="opcao22">Leo Stronda</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao23" name="influenciador"
+                                    value="Isabella Mayeski">
+                                <label class="form-check-label" for="opcao23">Isabella Mayeski</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="step_8" class="step">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle"><span class="numbersteps">1</span></div>
+                            <div class="circle"><span class="numbersteps">2</span></div>
+                            <div class="circle"><span class="numbersteps">3</span></div>
+                            <div class="circle"><span class="numbersteps">4</span></div>
+                            <div class="circle"><span class="numbersteps">5</span></div>
+                            <div class="circle"><span class="numbersteps">6</span></div>
+                            <div class="circle"><span class="numbersteps">7</span></div>
+                            <div class="circle active"><span class="numbersteps">8</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pergunta">A AllCross realizou um evento com palestra exclusiva do Átila Abreu,
+                                sobre o que Átila falou e qual era o nome do evento?</label>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao24" name="evento"
+                                    value="Papo é Saúde Trabalho em Equipe">
+                                <label class="form-check-label" for="opcao24">Papo é Saúde Trabalho em Equipe</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao25" name="evento"
+                                    value="Papo é Saúde Corrida e Trabalho">
+                                <label class="form-check-label" for="opcao25">Papo é Saúde Corrida e Trabalho</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao26" name="evento"
+                                    value="Liderança em Foco Trabalho em Equipe">
+                                <label class="form-check-label" for="opcao26">Liderança em Foco Trabalho em
+                                    Equipe</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="opcao27" name="evento"
+                                    value="Saúde em foco jornada de sucesso">
+                                <label class="form-check-label" for="opcao27">Saúde em foco jornada de sucesso</label>
+                            </div>
+                        </div>
+
+
+
+                        <button type="submit" id="enviarDados" class="btn btn-sm btn-primary enviar">Enviar</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="row" id="btnMudaEtapa">
+                <div class="col-lg">
+                    <button class="btn btn-block btn-secondary" id="prev">Etapa Anterior</button>
+                </div>
+                <div class="col-lg">
+                    <button class="btn btn-block btn-secondary" id="next">Próxima Etapa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
