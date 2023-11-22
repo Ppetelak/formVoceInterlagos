@@ -25,6 +25,14 @@ const db = mysql.createConnection({
     port: "3306",
 });
 
+/* const db = mysql.createConnection({
+    host: "localhost",
+    user: "user_quizatila",
+    password: "bl9M_51i0",
+    database: "quizatila",
+    port: "3306",
+}); */
+
 db.connect((error) => {
     if (error) {
       console.error("Erro ao conectar ao banco de dados:", error);
@@ -63,7 +71,7 @@ app.post("/enviadados", upload.none(), async (req, res) => {
     const cpfExistente = await queryData('SELECT cpf FROM inscricoes WHERE cpf = ?', [formulario.cpf]);
 
     if (cpfExistente.length > 0) {
-    return res.render('paginaDeErro', { mensagem: 'CPF já cadastrado' });
+    res.render('paginaDeErro', { mensagem: 'CPF já cadastrado' });
     }
 
     const respostasCorretas = {
@@ -106,11 +114,11 @@ app.post("/enviadados", upload.none(), async (req, res) => {
     if (acertos > 5) {
         //envioSheetsAcertou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
-        return res.render('paginaSucesso', { nome: informacoesContato.nome, qtdAcertos: acertos });
+        res.render('paginaSucesso', { nome: informacoesContato.nome, qtdAcertos: acertos });
     } else {
         //envioSheetsErrou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Não']);
-        return res.render('paginaInsucesso', { nome: informacoesContato.nome });
+        res.render('paginaInsucesso', { nome: informacoesContato.nome });
     }
 });
 

@@ -42,66 +42,28 @@ $(document).ready(function(){
     });
 });// Variáveis globais
 
+$('#formulario').submit(function (event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
 
-let acertos = 0;
+  // Cria um objeto FormData para enviar os dados do formulário
+  var formData = new FormData(this);
 
-// Substitua as perguntas e respostas conforme necessário
-let perguntas = [
-  {
-    pergunta: "Quando foi a primeira vez que falamos sobre nossa parceria com o Átila em nosso feed?",
-    alternativas: ["24 de março de 2023", "30 de março de 2023", "31 de março de 2023"],
-    resposta: "24 de março de 2023",
-  },
-  {
-    pergunta: "Quantas vezes o Átila já apareceu em nosso feed?",
-    alternativas: ["20", "18", "23", "16"],
-    resposta: "20",
-  },
-  {
-    pergunta: "A AllCross realizou o evento O Papo é Saúde com o Átila recentemente na XV de novembro, em Curitiba. Neste dia, aparecemos em 3 emissoras de TV, você sabe quais são?",
-    alternativas: ["Tribuna da Massa, RicTV e BandTV", "RicTV, RPC e Tribuna da Massa", "Tribuna da Massa, RPC e RicTV"],
-    resposta: "Tribuna da Massa, RicTV e BandTV",
-  },
-  {
-    pergunta: "Em quais etapas Átila Abreu foi campeão?",
-    alternativas: ["Silverado Stock Car 600 - GO e Velopark - RS", "Tarumã - RS e Velopark - RS", "Velopark - RS e Silverado Stock Car 600 - GO", "Interlagos - SP e Tarumã - RS"],
-    resposta: "Silverado Stock Car 600 - GO e Velopark - RS",
-  },
-  {
-    pergunta: "A AllCross realizou um evento com a Pole Motors em Curitiba no mês de maio. Em qual local da cidade esse evento aconteceu?",
-    alternativas: ["Shopping Pátio Batel", "Restaurante Madalosso", "Hard Rock Café", "XV de Novembro"],
-    resposta: "Hard Rock Café",
-  },
-  {
-    pergunta: "Qual foi o primeiro Influenciador convidado pela AllCross para assistir a Stock Car? Dica: foi no mês de abril",
-    alternativas: ["Júlio Cocielo", "Xenão", "Leo Stronda", "Isabella Mayeski"],
-    resposta: "Xenão",
-  },
-  {
-    pergunta: "A AllCross realizou um evento com palestra exclusiva do Átila Abreu, sobre o que Átila falou e qual era o nome do evento?",
-    alternativas: ["Papo é Saúde Trabalho em Equipe", "Papo é Saúde Corrida e Trabalho", "Liderança em Foco Trabalho em Equipe", "Saúde em foco jornada de sucesso"],
-    resposta: "Papo é Saúde Trabalho em Equipe",
-  },
-];
+  // Envia a requisição Ajax
+  $.ajax({
+      type: 'POST',
+      url: '/enviadados',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (data) {
+          console.log(data);
+      },
+      error: function (error) {
+          console.error('Erro ao enviar formulário:', error);
+      }
+  });
+});
 
-// Função para calcular o número de acertos
-function calcularAcertos() {
-  for (let i = 0; i < perguntas.length; i++) {
-    const selectedOption = document.querySelector('input[name="resposta_' + i + '"]:checked');
-    if (selectedOption && selectedOption.value === perguntas[i].resposta) {
-      acertos++;
-    }
-  }
-}
-
-// Função para verificar se a pessoa acertou pelo menos 4 questões (ajuste conforme necessário)
-function verificarAcerto() {
-  if (acertos >= 5) {
-    alert("Parabéns, você acertou pelo menos 5 questões!");
-  } else {
-    alert("Você acertou menos de 4 questões.");
-  }
-}
 
 function validarCPF(inputElement) {
   var cpfCampo = inputElement;
