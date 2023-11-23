@@ -62,6 +62,8 @@ $('#formulario').submit(function (event) {
             $('#myModal').modal('show');
             $('#enviarDados').prop('disabled', false).text('Enviar');
         } else {
+            alert('Erro ao enviar formulário, tente novamente por gentileza')
+            $('#enviarDados').prop('disabled', false).text('Enviar');
             console.error('Erro ao enviar formulário:', error);
         }
     }
