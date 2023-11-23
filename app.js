@@ -15,7 +15,6 @@ app.use("/js", express.static("js"));
 app.use("/img", express.static("img"));
 app.set("view engine", "ejs");
 app.use(cookie());
-app.use(cors({ origin: '*' }));
 
 const upload = multer();
 
@@ -63,9 +62,27 @@ app.get('/quizAtila', (req, res) => {
     res.render('index')
 })
 
-app.listen(porta, () => {
-    console.log(`Servidor rodando na porta ${porta}`);
-});
+
+async function enviarParaPlanilha(informacoesContato, acertos) {
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyScqgOHBUE2oz3-bTscllp4FMyKMkuVxrpv6QBiXMyPQlZxMvfWaRX2Qlhkb4fcmys/exec'; 
+
+    try {
+        await axios.post(googleSheetsUrl, {
+            data: {
+                nome: informacoesContato.nome,
+                cpf: informacoesContato.cpf,
+                instagram: informacoesContato.instagram,
+                campanha: informacoesContato.campanha,
+                acertos: acertos
+            }
+        });
+        console.log('Dados enviados para a planilha com sucesso!');
+        return true;
+    } catch (error) {
+        console.error('Erro ao enviar dados para a planilha:', error);
+        return false;
+    }
+}
 
 app.post("/enviadados", upload.none(), async (req, res) => {
     const formulario = req.body;
@@ -114,13 +131,15 @@ app.post("/enviadados", upload.none(), async (req, res) => {
 
     const sqlInsertInscricoes = 'INSERT INTO inscricoes(cpf, instagram, campanha, nome, acertoumaisdecinco) VALUES(?, ?, ?, ?, ?)'
 
+    const envioPlanilhaSucesso = await enviarParaPlanilha(informacoesContato, acertos);
+
+    console.log(envioPlanilhaSucesso);
+
     if (acertos > 5) {
-        //envioSheetsAcertou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
         const html = await ejs.renderFile('views/paginaSucesso.ejs', { nome: informacoesContato.nome, qtdAcertos: acertos });
         return res.send(html);
     } else {
-        //envioSheetsErrou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Não']);
         const html = await ejs.renderFile('views/paginaInsucesso.ejs', { nome: informacoesContato.nome })
         return res.send(html);
@@ -131,9 +150,6 @@ function envioSheetsAcertou (informacoes) {
 
 }
 
-function envioSheetsErrou (informacoes) {
-
-}
 
 app.get('/paginaerro', (req, res) => {
     res.render('paginadeErro')
@@ -146,3 +162,7 @@ app.get('/paginasucesso', (req, res) => {
 app.get('/paginainsucesso', (req, res) => {
     res.render('paginaInsucesso')
 })
+
+app.listen(porta, () => {
+    console.log(`Servidor rodando na porta ${porta}`);
+});
