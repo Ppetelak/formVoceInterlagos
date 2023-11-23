@@ -15,7 +15,8 @@ app.use("/js", express.static("js"));
 app.use("/img", express.static("img"));
 app.set("view engine", "ejs");
 app.use(cookie());
-app.use(cors());
+app.use(cors({ origin: '*' }));
+
 const upload = multer();
 
 const db = mysql.createConnection({
@@ -28,9 +29,9 @@ const db = mysql.createConnection({
 
 /* const db = mysql.createConnection({
     host: "localhost",
-    user: "user_quizatila",
+    user: "user_allcrossnet",
     password: "bl9M_51i0",
-    database: "quizatila",
+    database: "allcrossnet",
     port: "3306",
 }); */
 
@@ -58,7 +59,7 @@ function queryData(sql, values) {
 module.exports = queryData;
 
 
-app.get('/', (req, res) => {
+app.get('/quizAtila', (req, res) => {
     res.render('index')
 })
 
