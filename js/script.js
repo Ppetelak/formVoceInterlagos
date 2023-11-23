@@ -57,6 +57,7 @@ $('#formulario').submit(function (event) {
       contentType: false,
       success: function (data) {
           console.log(data);
+          $('#novaPagina').html(data);
       },
       error: function (error) {
           console.error('Erro ao enviar formulário:', error);

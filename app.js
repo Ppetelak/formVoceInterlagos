@@ -71,7 +71,8 @@ app.post("/enviadados", upload.none(), async (req, res) => {
     const cpfExistente = await queryData('SELECT cpf FROM inscricoes WHERE cpf = ?', [formulario.cpf]);
 
     if (cpfExistente.length > 0) {
-    res.render('paginaDeErro', { mensagem: 'CPF já cadastrado' });
+        const html = await ejs.renderFile('views/paginaDeErro.ejs')
+        return res.send(html);
     }
 
     const respostasCorretas = {
@@ -114,11 +115,13 @@ app.post("/enviadados", upload.none(), async (req, res) => {
     if (acertos > 5) {
         //envioSheetsAcertou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
-        res.render('paginaSucesso', { nome: informacoesContato.nome, qtdAcertos: acertos });
+        const html = await ejs.renderFile('views/paginaSucesso.ejs', { nome: informacoesContato.nome, qtdAcertos: acertos });
+        return res.send(html);
     } else {
         //envioSheetsErrou(informacoesContato);
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Não']);
-        res.render('paginaInsucesso', { nome: informacoesContato.nome });
+        const html = await ejs.renderFile('views/paginaInsucesso.ejs', { nome: informacoesContato.nome })
+        return res.send(html);
     }
 });
 
