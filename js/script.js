@@ -43,26 +43,29 @@ $(document).ready(function(){
 });// Variáveis globais
 
 $('#formulario').submit(function (event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
+    event.preventDefault(); 
+    $('#enviarDados').prop('disabled', true).text('Aguarde...');
+    var formData = new FormData(this);
 
-  // Cria um objeto FormData para enviar os dados do formulário
-  var formData = new FormData(this);
-
-  // Envia a requisição Ajax
-  $.ajax({
-      type: 'POST',
-      url: '/enviadados',
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (data) {
-          console.log(data);
-          $('#novaPagina').html(data);
-      },
-      error: function (error) {
-          console.error('Erro ao enviar formulário:', error);
-      }
-  });
+    $.ajax({
+    type: 'POST',
+    url: '/enviadados',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (data) {
+        console.log(data);
+        $('#novaPagina').html(data);
+    },
+    error:  function (xhr, status, error) {
+        if (xhr.status === 400) {
+            $('#myModal').modal('show');
+            $('#enviarDados').prop('disabled', false).text('Enviar');
+        } else {
+            console.error('Erro ao enviar formulário:', error);
+        }
+    }
+    });
 });
 
 

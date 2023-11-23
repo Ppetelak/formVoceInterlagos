@@ -3,7 +3,9 @@ body{
 }
 .bodyTudo{
     background: #1005FF;
-    background-image: url(/img/Luzes\ 2.png);
+    /* background-image: url(/img/Luzes\ 2.png); */
+    background-size: cover;
+    background-repeat: repeat;
 }
 .inactive{
     display:none!important;
@@ -221,6 +223,16 @@ label{
     content: '\26A0 CPF Inválido'; /* Warning Unicode character */
     color: red;
     margin-right: 5px;
+}
+
+.modal-content button{
+    background:#1005FF;
+    color: #fff;
+}
+
+.modal-content p{
+    color:#252525;
+    font-size: 1rem;
 }
 
 @media only screen and (max-width: 767px) {

@@ -7,6 +7,7 @@ const util = require('util')
 const cookie = require('cookie-parser')
 const ejs = require("ejs");
 const multer = require('multer');
+const axios = require('axios');
 const porta = process.env.PORT || 5586;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -64,11 +65,11 @@ app.get('/quizAtila', (req, res) => {
 
 
 async function enviarParaPlanilha(informacoesContato, acertos) {
-    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyScqgOHBUE2oz3-bTscllp4FMyKMkuVxrpv6QBiXMyPQlZxMvfWaRX2Qlhkb4fcmys/exec'; 
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbwQDZNFpsCusIGjUtQp0GZ8CMpe3-4mvPPiEHr6YWbb4YIXuAk65RXTXSlcaBdpkvps/exec';
 
     try {
-        await axios.post(googleSheetsUrl, {
-            data: {
+        await axios.post(googleSheetsUrl, null, {
+            params: {
                 nome: informacoesContato.nome,
                 cpf: informacoesContato.cpf,
                 instagram: informacoesContato.instagram,
@@ -84,8 +85,16 @@ async function enviarParaPlanilha(informacoesContato, acertos) {
     }
 }
 
+
+
 app.post("/enviadados", upload.none(), async (req, res) => {
     const formulario = req.body;
+
+    const camposVazios = Object.values(formulario).some(value => !value);
+
+    if (camposVazios) {
+        return res.status(400).json({ error: 'Campos obrigatórios não preenchidos' });
+    }
 
     const cpfExistente = await queryData('SELECT cpf FROM inscricoes WHERE cpf = ?', [formulario.cpf]);
 
@@ -145,11 +154,6 @@ app.post("/enviadados", upload.none(), async (req, res) => {
         return res.send(html);
     }
 });
-
-function envioSheetsAcertou (informacoes) {
-
-}
-
 
 app.get('/paginaerro', (req, res) => {
     res.render('paginadeErro')

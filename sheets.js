@@ -1,11 +1,8 @@
-function doGet (e) {
-    return HtmlService.createHtmlOutput('solicitação recebida');
+function doGet(e) {
+    return HtmlService.createHtmlOutput('Solicitação recebida');
   }
   
-  function doPost (e) {
-  
-    if(typeof e !== 'undefined')
-    var parametros = e.parameter;
+  function doPost(e) {
     var planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('dados');
   
     var ultimaLinha = Math.max(planilha.getLastRow(), 1);
@@ -14,16 +11,14 @@ function doGet (e) {
   
     planilha.insertRowAfter(ultimaLinha);
   
-    var dataAtual = new Date() // variável para pegar a data de preemnchimento de um form ou no caso da criação de uma nova linha na planilha
-
-
-    var data = parametros.nome;
-    var cpf = parametros.cpf;
-    var instagram = parametros.instagram;
-    var campanha = parametros.campanha; 
-    var acertos = parametros.acertos;
+    var dataAtual = new Date();
+    var nome = e.parameter.nome;
+    var cpf = e.parameter.cpf;
+    var instagram = e.parameter.instagram;
+    var campanha = e.parameter.campanha;
+    var acertos = e.parameter.acertos;
   
-    planilha.getRange(linhaAtual, 1).setValue(dataAtual)
+    planilha.getRange(linhaAtual, 1).setValue(dataAtual);
     planilha.getRange(linhaAtual, 2).setValue(nome);
     planilha.getRange(linhaAtual, 3).setValue(instagram);
     planilha.getRange(linhaAtual, 4).setValue(cpf);
@@ -32,9 +27,6 @@ function doGet (e) {
   
     SpreadsheetApp.flush();
   
-  
-    return ContentService.createTextOutput('{"status": "success"}')
-        .setMimeType(ContentService.MimeType.JSON);
-  
+    return ContentService.createTextOutput('{"status": "success"}').setMimeType(ContentService.MimeType.JSON);
   }
   
