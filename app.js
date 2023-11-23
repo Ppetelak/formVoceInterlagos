@@ -15,6 +15,7 @@ app.use("/js", express.static("js"));
 app.use("/img", express.static("img"));
 app.set("view engine", "ejs");
 app.use(cookie());
+app.use(cors());
 const upload = multer();
 
 const db = mysql.createConnection({
