@@ -7,7 +7,6 @@ const util = require('util')
 const cookie = require('cookie-parser')
 const ejs = require("ejs");
 const multer = require('multer');
-const axios = require('axios');
 const porta = process.env.PORT || 5586;
 
 app.use(bodyParser.urlencoded({ extended: true }));
