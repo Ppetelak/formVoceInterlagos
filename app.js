@@ -7,6 +7,7 @@ const util = require('util')
 const cookie = require('cookie-parser')
 const ejs = require("ejs");
 const multer = require('multer');
+const axios = require('axios');
 const porta = process.env.PORT || 5586;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -64,7 +65,8 @@ app.get('/quizAtila', (req, res) => {
 
 
 async function enviarParaPlanilha(informacoesContato, acertos) {
-    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbwQDZNFpsCusIGjUtQp0GZ8CMpe3-4mvPPiEHr6YWbb4YIXuAk65RXTXSlcaBdpkvps/exec';
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyKRhGsUSLdvEaQDUpvKCcWZY2Og8nTD6ALsKDe1wiTDng-1AyRN0Kzjm5gROt_6axK/exec';
+    
 
     try {
         await axios.post(googleSheetsUrl, null, {
