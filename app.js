@@ -58,6 +58,10 @@ function queryData(sql, values) {
 
 module.exports = queryData;
 
+app.get('/', (req, res) => {
+    res.redirect('https://allcross.com.br');
+});
+
 
 app.get('/quizAtila', (req, res) => {
     res.render('index')
