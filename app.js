@@ -67,6 +67,10 @@ app.get('/quizAtila', (req, res) => {
     res.render('index')
 })
 
+app.get('/festa-final-de-ano-confirmacao', (req, res) => {
+    res.render('confirmacaoFinalDeAno')
+})
+
 
 async function enviarParaPlanilha(informacoesContato, acertos) {
     const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyKRhGsUSLdvEaQDUpvKCcWZY2Og8nTD6ALsKDe1wiTDng-1AyRN0Kzjm5gROt_6axK/exec';
@@ -89,9 +93,6 @@ async function enviarParaPlanilha(informacoesContato, acertos) {
         return false;
     }
 }
-
-
-
 app.post("/enviadados", upload.none(), async (req, res) => {
     const formulario = req.body;
 
@@ -156,6 +157,61 @@ app.post("/enviadados", upload.none(), async (req, res) => {
         const html = await ejs.renderFile('views/paginaInsucesso.ejs', { nome: informacoesContato.nome })
         return res.send(html);
     }
+});
+
+async function sendSheetsConfirmacaoEvento(informacoesContato) {
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyEIUq6IJo92kdiUdh1m21fKcKZTenxm9kcP1oCJeR4HU6m6lAthJFM4qbALY4kNZMZ/exec';
+    
+
+    try {
+        await axios.post(googleSheetsUrl, null, {
+            params: {
+                nome: informacoesContato.nome,
+                cpf: informacoesContato.cpf,
+                unidade: informacoesContato.unidade,
+            }
+        });
+        console.log('Dados enviados para a planilha com sucesso!');
+        return true;
+    } catch (error) {
+        console.error('Erro ao enviar dados para a planilha:', error);
+        return false;
+    }
+}
+
+app.post("/enviadados-confirmacaoEvento", upload.none(), async (req, res) => {
+    const formulario = req.body;
+
+    const camposVazios = Object.values(formulario).some(value => !value);
+
+    if (camposVazios) {
+        return res.status(400).json({ mensagem: 'Campos obrigatórios não preenchidos' });
+    }
+
+    const cpfExistente = await queryData('SELECT cpf FROM confirmacoes WHERE cpf = ?', [formulario.cpf]);
+
+    if (cpfExistente.length > 0) {
+        return res.status(500).json({ mensagem: 'CPF já confirmado' });
+    }
+
+    const informacoesContato = {
+        nome: formulario.nome,
+        instagram: formulario.instagram,
+        cpf: formulario.cpf,
+        campanha: formulario.como_soube,
+    };
+
+    const sqlInsertconfirmacoes = 'INSERT INTO confirmacoes(cpf, nome, unidade) VALUES(?, ?, ?)'
+
+    await sendSheetsConfirmacaoEvento(informacoesContato);
+
+    db.query(sqlInsertconfirmacoes, [informacoesContato.cpf, informacoesContato.nome, informacoesContato.unidade], (err, result) => {
+        if (err)
+        {
+            console.log(err)
+        }
+        return res.status(400).json({ mensagem: 'CONFIRMAÇÃO FEITA COM SUCESSO ✅ ATÉ O EVENTO 😘' });
+    })
 });
 
 app.get('/paginaerro', (req, res) => {

@@ -1,0 +1,99 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.bodyTudo{
+    background: #1005FF;
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.barraEsquerda{
+    content: '';
+    background: #03003a;
+    width: 20%;
+}
+
+p{
+    color: #ffffff;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.cabecalho h3{
+    color: #47E9FF;
+}
+
+.cabecalho img{
+    width: 50%;
+}
+
+#enviarDados{
+    float: right;
+    margin-top: 20px;
+    background: #FFC925;
+    border: #FFC925;
+    font-size: 22px;
+    width: 100%;
+    color:#1005FF;
+}
+
+label{
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.form-check-input:checked {
+    background-color: #FFC925!important;
+    border-color: #FFC925!important;
+}
+
+.valid-feedback, .invalid-feedback {
+    display: none;
+    margin-top: 5px;
+    background: #fff;
+    padding: 3px;
+    border-radius: 12px;
+}
+
+.valid-feedback::before {
+    content: '\2714 CPF Válido'; /* Checkmark Unicode character */
+    color: green;
+    margin-right: 5px;
+}
+
+.invalid-feedback::before {
+    content: '\26A0 CPF Inválido'; /* Warning Unicode character */
+    color: red;
+    margin-right: 5px;
+}
+
+.modal-content button{
+    background:#1005FF;
+    color: #fff;
+}
+
+.modal-content p{
+    color:#252525;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .info {
+        width: 80%;
+        
+    }
+  }
+  
