@@ -64,7 +64,7 @@ $('#formulario').submit(function (event) {
         } else {
             alert('Erro ao enviar formulário, tente novamente por gentileza')
             $('#enviarDados').prop('disabled', false).text('Enviar');
-            console.error('Erro ao enviar formulário:', error);
+            console.error('Erro ao enviar formulário, por favor tente clicar em enviar novamente');
         }
     }
     });
@@ -111,9 +111,4 @@ function validarCPF(inputElement) {
   validFeedback.style.display = 'inline';
 }
 
-// Evento de clique no botão "Enviar"
-/* document.getElementById("enviar").addEventListener("click", function() {
-  calcularAcertos();
-  verificarAcerto();
-}); */
 

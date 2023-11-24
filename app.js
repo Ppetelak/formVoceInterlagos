@@ -141,9 +141,7 @@ app.post("/enviadados", upload.none(), async (req, res) => {
 
     const sqlInsertInscricoes = 'INSERT INTO inscricoes(cpf, instagram, campanha, nome, acertoumaisdecinco) VALUES(?, ?, ?, ?, ?)'
 
-    const envioPlanilhaSucesso = await enviarParaPlanilha(informacoesContato, acertos);
-
-    console.log(envioPlanilhaSucesso);
+    await enviarParaPlanilha(informacoesContato, acertos);
 
     if (acertos > 5) {
         await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
