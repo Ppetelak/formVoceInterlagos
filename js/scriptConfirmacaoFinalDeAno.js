@@ -3,6 +3,7 @@ $('#formConfirmacao').submit(function (event) {
     $('#enviarDados').prop('disabled', true).text('Aguarde...');
     var formData = new FormData(this);
 
+
     $.ajax({
     type: 'POST',
     url: '/enviadados-confirmacaoEvento',
@@ -13,6 +14,7 @@ $('#formConfirmacao').submit(function (event) {
         if (data.mensagem) {
             console.log('Mensagem recebida:', data.mensagem);
             mostrarPopup(data.mensagem);
+            $('#enviarDados').prop('disabled', false).text('Enviar');
         }
     },
     error:  function (xhr, status, error) {

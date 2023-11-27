@@ -160,8 +160,7 @@ app.post("/enviadados", upload.none(), async (req, res) => {
 });
 
 async function sendSheetsConfirmacaoEvento(informacoesContato) {
-    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyEIUq6IJo92kdiUdh1m21fKcKZTenxm9kcP1oCJeR4HU6m6lAthJFM4qbALY4kNZMZ/exec';
-    
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbxJn5T9ciFac_WPxQrYIGUrhTVAY2X7pOe6DwbX85-hoXDm6LDEAWjhKmr__t1fUQMZ/exec';
 
     try {
         await axios.post(googleSheetsUrl, null, {
@@ -196,9 +195,8 @@ app.post("/enviadados-confirmacaoEvento", upload.none(), async (req, res) => {
 
     const informacoesContato = {
         nome: formulario.nome,
-        instagram: formulario.instagram,
         cpf: formulario.cpf,
-        campanha: formulario.como_soube,
+        unidade: formulario.unidade,
     };
 
     const sqlInsertconfirmacoes = 'INSERT INTO confirmacoes(cpf, nome, unidade) VALUES(?, ?, ?)'
@@ -209,6 +207,7 @@ app.post("/enviadados-confirmacaoEvento", upload.none(), async (req, res) => {
         if (err)
         {
             console.log(err)
+            return res.status(400).json({ mensagem: 'Erro no servidor, tente clicar em enviar novamente!'})
         }
         return res.status(400).json({ mensagem: 'CONFIRMAÇÃO FEITA COM SUCESSO ✅ ATÉ O EVENTO 😘' });
     })

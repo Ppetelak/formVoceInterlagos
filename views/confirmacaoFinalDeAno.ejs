@@ -22,15 +22,33 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="cabecalho">
-                    <img class="img-fluid mb-3" src="https://allcross.com.br/wp-content/uploads/2023/11/allcross_grupo_branca.png">
-                    <h3 class="tex-center">CONFIRME SUA PRESENÇA NO EVENTO!</h3>
-                    <p> Precisamos desses dados e da sua confirmação para fazer um evento <strong>MEMORÁVEL! </strong></p>
+                    <div class="row logos">
+                      <div class="col-6 logos text-end">
+                        <img class="img-fluid mb-3" src="https://allcross.com.br/wp-content/uploads/2023/11/allcross_grupo_branca.png">
+                      </div>
+                      <div class="col-6 logos text-start">
+                        <img class="img-fluid mb-3 logofimdeano" src="/img/fimdeanoformlogo.png">
+                      </div>
+                    </div>
+                    <p> A <strong>AllCross</strong> convida você para a festa de final de ano,
+                      que será realizada no <strong>Restaurante Dom Antônio.</strong> </p>
 
-                    <p> 
-                        <strong>DATA:</strong> 21/12  á partir das 20hrs </br>
-                        <strong>LOCAL:</strong> Restaurante Dom Antônio. </br>
-                        <strong>ENDEREÇO:</strong> Av. Manoel Ribas, 6121 - Santa Felicidade
-                    </p>
+                    <div class="row">
+                      <div class="col-6 icones">
+                        <div class="row">
+                          <i class="bi bi-calendar3"></i> 
+                          <p><strong>21/12</strong> á partir das <strong>20hrs</strong></p>
+                        </div>
+                      </div>
+                      <div class="col-6 icones">
+                        <div class="row">
+                          <i class="bi bi-geo-alt"></i>
+                          <p>Av. Manoel Ribas, 6121 </br>Santa Felicidade</p>
+                        </div>
+                      </div>
+                    </div>  
+                    <h3 class="tex-center">Venha comemorar conosco mais um</br>
+                      ano de conquistas e sucesso!</h3>  
                 </div>
                 <form id="formConfirmacao" enctype="multipart/form-data">
                     <div class="row">
@@ -39,9 +57,9 @@
                             <input type="text" class="form-control" name="nome" placeholder="Nome" >
                         </div>
                         <div class="col-md-6">
-                            <label>Número do eu CPF:</label>
+                            <label>Número do seu CPF: <span class="msg">(Apenas números)</span></label>
                             <div> 
-                                <input type="number" class="form-control" name="cpf" placeholder="CPF" name="cpf" onblur="validarCPF(this)" maxlength="11" >
+                                <input type="number" class="form-control" name="cpf" id="cpf" placeholder="CPF" onblur="validarCPF(this)" maxlength="11" >
                             <span class="valid-feedback"></span>
                             <span class="invalid-feedback"></span>
                             </div>
@@ -52,9 +70,17 @@
                           <label for="unidade">Selecione a unidade ou empresa do Grupo ao qual pertence:</label>
                           <select class="form-select" id="unidade" aria-label="Example select with button addon" name="unidade">
                             <option selected disabled>Escolha uma opção</option>
-                            <option value="AllCross Matriz">AllCross Matriz</option>
+                            <option value="AllCross Matriz">AllCross - Matriz</option>
+                            <option value="AllCross - Fazenda Rio Grande">AllCross - Fazenda Rio Grande</option>
+                            <option value="Linha Master">Linha Master</option>
                             <option value="Mídia Ideal">Mídia Ideal</option>
-                            <option value="Mount Hermon">Mount Hermon</option>
+                            <option value="Canal de Negócios">Canal de Negócios</option>
+                            <option value="BRKR">BRKR</option>
+                            <option value="MountPay">MountPay</option>
+                            <option value="T. Becker">T. Becker</option>
+                            <option value="PX Tecnologia">PX Tecnologia</option>
+                            
+                            
                           </select>
                         </div>
                       </div>
@@ -63,7 +89,6 @@
             </div>
         </div>
     </div>
-    <div class="barraEsquerda"></div>
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
