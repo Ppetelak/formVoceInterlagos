@@ -111,7 +111,7 @@ app.post("/enviadados", upload.none(), async (req, res) => {
 
     const respostasCorretas = {
         respostaFeed: '24 de março de 2023',
-        quantidadeApareceu: '20',
+        quantidadeApareceu: '15',
         emissorasTV: 'Tribuna da Massa, RicTV e BandTV',
         etapasCampeao: 'Silverado Stock Car 600 - GO e Velopark - RS',
         localEvento: 'Hard Rock Café',
