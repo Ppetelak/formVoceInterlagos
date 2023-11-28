@@ -30,34 +30,18 @@
                         <img class="img-fluid mb-3 logofimdeano" src="/img/fimdeanoformlogo.png">
                       </div>
                     </div>
-                    <p> A <strong>AllCross</strong> convida você para a festa de final de ano,
-                      que será realizada no <strong>Restaurante Dom Antônio.</strong> </p>
-
-                    <div class="row">
-                      <div class="col-6 icones">
-                        <div class="row">
-                          <i class="bi bi-calendar3"></i> 
-                          <p><strong>21/12</strong> á partir das <strong>20hrs</strong></p>
-                        </div>
-                      </div>
-                      <div class="col-6 icones">
-                        <div class="row">
-                          <i class="bi bi-geo-alt"></i>
-                          <p>Av. Manoel Ribas, 6121 </br>Santa Felicidade</p>
-                        </div>
-                      </div>
-                    </div>  
-                    <h3 class="tex-center">Venha comemorar conosco mais um</br>
-                      ano de conquistas e sucesso!</h3>  
+                    <p> Formulário de confirmação </p>
                 </div>
                 <form id="formConfirmacao" enctype="multipart/form-data">
+                    <div class="row d-none" id="mensagem">
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label>Nome:</label>
                             <input type="text" class="form-control" name="nome" placeholder="Nome" >
                         </div>
                         <div class="col-md-6">
-                            <label>Número do seu CPF: <span class="msg">(Apenas números)</span></label>
+                            <label>Seu CPF: <span class="msg">(Apenas números)</span></label>
                             <div> 
                                 <input type="number" class="form-control" name="cpf" id="cpf" placeholder="CPF" onblur="validarCPF(this)" maxlength="11" >
                             <span class="valid-feedback"></span>

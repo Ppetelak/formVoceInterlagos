@@ -13,17 +13,17 @@ $('#formConfirmacao').submit(function (event) {
     success: function (data) {
         if (data.mensagem) {
             console.log('Mensagem recebida:', data.mensagem);
-            mostrarPopup(data.mensagem);
+            mostrarMensagem(data.mensagem);
             $('#enviarDados').prop('disabled', false).text('Enviar');
         }
     },
     error:  function (xhr, status, error) {
         if (xhr.status === 400 || xhr.status === 500) {
             console.log('Erro recebido:', xhr.responseJSON.mensagem);            
-            mostrarPopup(xhr.responseJSON.mensagem);
+            mostrarMensagem(xhr.responseJSON.mensagem);
         } else {
             console.log('Mensagem recebida:', xhr.responseJSON.mensagem);
-            mostrarPopup(xhr.responseJSON.mensagem);
+            mostrarMensagem(xhr.responseJSON.mensagem);
         }
         $('#enviarDados').prop('disabled', false).text('Enviar');
     }
@@ -33,6 +33,12 @@ $('#formConfirmacao').submit(function (event) {
 function mostrarPopup(mensagem) {
     $('#myModal .modal-body p').text(mensagem);
     $('#myModal').modal('show');
+}
+
+function mostrarMensagem(mensagem) {
+    var divMensagem = $('#mensagem');
+    divMensagem.text(mensagem);
+    divMensagem.removeClass('d-none');
 }
 
 
