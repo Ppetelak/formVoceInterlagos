@@ -2,7 +2,7 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
 }
 .bodyTudo{
-    background: #02185B;
+    background: #1005FF;
     background-size: cover;
     background-repeat: repeat;
     width: 100%;
@@ -42,17 +42,17 @@ p{
 }
 
 .cabecalho h3{
-    color: #AFA76D;
+    color: #FFC925;
     text-align: center;
 }
 
 .msg{
-    color:#AFA76D;
+    color:#FFC925;
     font-weight: bold;
 }
 
 .cabecalho i{
-    color:#AFA76D
+    color:#FFC925
 }
 
 .logos{
@@ -68,8 +68,8 @@ p{
 #enviarDados{
     float: right;
     margin-top: 20px;
-    background: #AFA76D;
-    border: #AFA76D;
+    background: #FFC925;
+    border: #FFC925;
     font-size: 22px;
     width: 100%;
     color:#1005FF;
@@ -87,8 +87,8 @@ form{
 }
 
 .form-check-input:checked {
-    background-color: #AFA76D!important;
-    border-color: #AFA76D!important;
+    background-color: #FFC925!important;
+    border-color: #FFC925!important;
 }
 
 .valid-feedback, .invalid-feedback {
