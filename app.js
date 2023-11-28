@@ -19,21 +19,21 @@ app.use(cookie());
 
 const upload = multer();
 
-const db = mysql.createConnection({
+/* const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "pmp078917",
     database: "quizatila",
     port: "3306",
-});
+}); */
 
-/* const db = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "user_allcrossnet",
     password: "bl9M_51i0",
     database: "allcrossnet",
     port: "3306",
-}); */
+});
 
 db.connect((error) => {
     if (error) {
