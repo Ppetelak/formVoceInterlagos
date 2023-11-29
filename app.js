@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/quizAtila', (req, res) => {
+app.get('/voce-em-interlagos', (req, res) => {
     res.render('index')
 })
 
@@ -73,10 +73,9 @@ app.get('/festa-final-de-ano-confirmacao', (req, res) => {
 })
 
 
-async function enviarParaPlanilha(informacoesContato, acertos) {
+async function enviarParaPlanilha(informacoesContato) {
     const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyKRhGsUSLdvEaQDUpvKCcWZY2Og8nTD6ALsKDe1wiTDng-1AyRN0Kzjm5gROt_6axK/exec';
     
-
     try {
         await axios.post(googleSheetsUrl, null, {
             params: {
@@ -84,7 +83,6 @@ async function enviarParaPlanilha(informacoesContato, acertos) {
                 cpf: informacoesContato.cpf,
                 instagram: informacoesContato.instagram,
                 campanha: informacoesContato.campanha,
-                acertos: acertos
             }
         });
         console.log('Dados enviados para a planilha com sucesso!');
@@ -110,26 +108,6 @@ app.post("/enviadados", upload.none(), async (req, res) => {
         return res.send(html);
     }
 
-    const respostasCorretas = {
-        respostaFeed: '24 de março de 2023',
-        quantidadeApareceu: '15',
-        emissorasTV: 'Tribuna da Massa, RicTV e BandTV',
-        etapasCampeao: 'Silverado Stock Car 600 - GO e Velopark - RS',
-        localEvento: 'Hard Rock Café',
-        influenciadorStockCar: 'Xenão',
-        eventoPalestra: 'Papo é Saúde Trabalho em Equipe'
-    };
-
-    const respostasQuiz = {
-        respostaFeed: formulario.respostaFeed,
-        quantidadeApareceu: formulario.quantidade,
-        emissorasTV: formulario.emissoras,
-        etapasCampeao: formulario.etapas,
-        localEvento: formulario.local,
-        influenciadorStockCar: formulario.influenciador,
-        eventoPalestra: formulario.evento
-    };
-
     const informacoesContato = {
         nome: formulario.nome,
         instagram: formulario.instagram,
@@ -137,27 +115,13 @@ app.post("/enviadados", upload.none(), async (req, res) => {
         campanha: formulario.como_soube,
     };
 
-    let acertos = 0;
-
-    for (const pergunta in respostasCorretas) {
-        if (respostasQuiz[pergunta] === respostasCorretas[pergunta]) {
-            acertos++;
-        }
-    }
-
     const sqlInsertInscricoes = 'INSERT INTO inscricoes(cpf, instagram, campanha, nome, acertoumaisdecinco) VALUES(?, ?, ?, ?, ?)'
 
-    await enviarParaPlanilha(informacoesContato, acertos);
+    await enviarParaPlanilha(informacoesContato);
+    await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
 
-    if (acertos > 5) {
-        await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Sim']);
-        const html = await ejs.renderFile('views/paginaSucesso.ejs', { nome: informacoesContato.nome, qtdAcertos: acertos });
-        return res.send(html);
-    } else {
-        await queryData(sqlInsertInscricoes, [informacoesContato.cpf, informacoesContato.instagram, informacoesContato.campanha, informacoesContato.nome, 'Não']);
-        const html = await ejs.renderFile('views/paginaInsucesso.ejs', { nome: informacoesContato.nome })
-        return res.send(html);
-    }
+    const html = await ejs.renderFile('views/paginaSucesso.ejs', { nome: informacoesContato.nome});
+    return res.send(html);
 });
 
 async function sendSheetsConfirmacaoEvento(informacoesContato) {
@@ -219,11 +183,7 @@ app.get('/paginaerro', (req, res) => {
 })
 
 app.get('/paginasucesso', (req, res) => {
-    res.render('paginaSucesso', {nome: 'Teste de Nome', qtdAcertos: '6'})
-})
-
-app.get('/paginainsucesso', (req, res) => {
-    res.render('paginaInsucesso', {nome: 'Teste de Nome'})
+    res.render('paginaSucesso', {nome: 'Teste de Nome'})
 })
 
 app.listen(porta, () => {
