@@ -10,6 +10,7 @@ const multer = require('multer');
 const axios = require('axios');
 const porta = process.env.PORT || 5586;
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/css", express.static("css"));
 app.use("/js", express.static("js"));
@@ -19,21 +20,21 @@ app.use(cookie());
 
 const upload = multer();
 
-/* const db = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "pmp078917",
     database: "quizatila",
     port: "3306",
-}); */
+});
 
-const db = mysql.createConnection({
+/* const db = mysql.createConnection({
     host: "localhost",
     user: "user_allcrossnet",
     password: "bl9M_51i0",
     database: "allcrossnet",
     port: "3306",
-});
+}); */
 
 db.connect((error) => {
     if (error) {
@@ -218,11 +219,11 @@ app.get('/paginaerro', (req, res) => {
 })
 
 app.get('/paginasucesso', (req, res) => {
-    res.render('paginaSucesso')
+    res.render('paginaSucesso', {nome: 'Teste de Nome', qtdAcertos: '6'})
 })
 
 app.get('/paginainsucesso', (req, res) => {
-    res.render('paginaInsucesso')
+    res.render('paginaInsucesso', {nome: 'Teste de Nome'})
 })
 
 app.listen(porta, () => {
