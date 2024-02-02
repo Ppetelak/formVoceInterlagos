@@ -8,10 +8,13 @@ const cookie = require('cookie-parser')
 const ejs = require("ejs");
 const multer = require('multer');
 const axios = require('axios');
+const cors = require('cors');
 const porta = process.env.PORT || 5586;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 app.use("/css", express.static("css"));
 app.use("/js", express.static("js"));
 app.use("/img", express.static("img"));
@@ -63,6 +66,154 @@ app.get('/', (req, res) => {
     res.redirect('https://allcross.com.br');
 });
 
+app.get('/pesquisaCorretores', (req , res) => {
+    res.render('pesquisaCorretores')
+})
+
+app.post('/recebePesquisa', (req, res) => {
+    const dadosRecebidos = req.body;
+
+    const insertData = { ...dadosRecebidos };
+
+    insertData.etapa5.estilosMusicais= Array.isArray(insertData.etapa5.estilosMusicais)
+    ? insertData.etapa5.estilosMusicais.join(', ')
+    : insertData.etapa5.estilosMusicais;
+
+    insertData.etapa7.ambienteTrabalho = Array.isArray(insertData.etapa7.ambienteTrabalho)
+    ? insertData.etapa7.ambienteTrabalho.join(', ')
+    : insertData.etapa7.ambienteTrabalho;
+
+    insertData.etapa7.comoProspecta = Array.isArray(insertData.etapa7.comoProspecta)
+    ? insertData.etapa7.comoProspecta.join(', ')
+    : insertData.etapa7.comoProspecta;
+
+    const sql = `
+  INSERT INTO pesquisaCorretores (
+    etapa1,
+    etapa2_regiao,
+    etapa2_unidade,
+    etapa2_idade,
+    etapa2_genero,
+    etapa2_nivelEscolar,
+    etapa2_estadoCivil,
+    etapa2_possuiDeficiencia,
+    etapa2_possuiPlano,
+    etapa2_temFilhos,
+    etapa2_temAnimais,
+    etapa3_pessoasCasa,
+    etapa3_pessoasComPlano,
+    etapa3_casaPropria,
+    etapa3_qtsAnosAllcross,
+    etapa3_jaSaiu,
+    etapa3_qtsAnosTotalAllcross,
+    etapa3_tipoCorretor,
+    etapa3_ferramentaTrabalho,
+    etapa3_qualFerramentaMaisUsa,
+    etapa3_comunicacaoInternaOrdem,
+    etapa4_comunicacaoExternaOrdem,
+    etapa4_midiasConsomeOrdem,
+    etapa4_meioLocomocao,
+    etapa4_homeOffice,
+    etapa4_motivadoQuando,
+    etapa5_exerciciosFisicos,
+    etapa5_gostaLer,
+    etapa5_viajaFrequencia,
+    etapa5_estilosMusicais,
+    etapa5_gostaEstudar,
+    etapa5_gostaPassearShopping,
+    etapa5_sobreDrogasLicitas,
+    etapa5_gostaFilmes,
+    etapa5_vaiCinema,
+    etapa5_atividadeArLivre,
+    etapa6_notaLideranca,
+    etapa6_notaMotivacao,
+    etapa6_notaInfraestrutura,
+    etapa6_notaQualidadeLead,
+    etapa6_notaPremiacoes,
+    etapa6_notaSuporte,
+    etapa6_notaTreinamentos,
+    etapa6_notaPertencimento,
+    etapa6_notaEventos,
+    etapa6_notaRecomendaria,
+    etapa6_notaRecomendariaProdutos,
+    etapa7_comoConheceu,
+    etapa7_referenciaVendas,
+    etapa7_nomeReferencia,
+    etapa7_ambienteTrabalho,
+    etapa7_outrosDetalhes,
+    etapa7_notaConvivencia,
+    etapa7_notaMaisModerna,
+    etapa7_comoProspecta
+  ) VALUES (
+    '${insertData.etapa1.primeiraEtapa}',
+    '${insertData.etapa2.regiao}',
+    '${insertData.etapa2.unidade}',
+    '${insertData.etapa2.idade}',
+    '${insertData.etapa2.genero}',
+    '${insertData.etapa2.nivelEscolar}',
+    '${insertData.etapa2.estadoCivil}',
+    '${insertData.etapa2.possuiDeficiencia}',
+    '${insertData.etapa2.possuiPlano}',
+    '${insertData.etapa2.temFilhos}',
+    '${insertData.etapa2.temAnimais}',
+    '${insertData.etapa3.pessoasCasa}',
+    '${insertData.etapa3.pessoasComPlano}',
+    '${insertData.etapa3.casaPropria}',
+    '${insertData.etapa3.qtsAnosAllcross}',
+    '${insertData.etapa3.jaSaiu}',
+    '${insertData.etapa3.qtsAnosTotalAllcross}',
+    '${insertData.etapa3.tipoCorretor}',
+    '${insertData.etapa3.ferramentaTrabalho}',
+    '${insertData.etapa3.qualFerramentaMaisUsa}',
+    '${insertData.etapa3.comunicacaoInternaOrdem}',
+    '${insertData.etapa4.comunicacaoExternaOrdem}',
+    '${insertData.etapa4.midiasConsomeOrdem}',
+    '${insertData.etapa4.meioLocomocao}',
+    '${insertData.etapa4.homeOffice}',
+    '${insertData.etapa4.motivadoQuando}',
+    '${insertData.etapa5.exerciciosFisicos}',
+    '${insertData.etapa5.gostaLer}',
+    '${insertData.etapa5.viajaFrequencia}',
+    '${insertData.etapa5.estilosMusicais}',
+    '${insertData.etapa5.gostaEstudar}',
+    '${insertData.etapa5.gostaPassearShopping}',
+    '${insertData.etapa5.sobreDrogasLicitas}',
+    '${insertData.etapa5.gostaFilmes}',
+    '${insertData.etapa5.vaiCinema}',
+    '${insertData.etapa5.atividadeArLivre}',
+    '${insertData.etapa6.notaLideranca}',
+    '${insertData.etapa6.notaMotivacao}',
+    '${insertData.etapa6.notaInfraestrutura}',
+    '${insertData.etapa6.notaQualidadeLead}',
+    '${insertData.etapa6.notaPremiacoes}',
+    '${insertData.etapa6.notaSuporte}',
+    '${insertData.etapa6.notaTreinamentos}',
+    '${insertData.etapa6.notaPertencimento}',
+    '${insertData.etapa6.notaEventos}',
+    '${insertData.etapa6.notaRecomendaria}',
+    '${insertData.etapa6.notaRecomendariaProdutos}',
+    '${insertData.etapa7.comoConheceu}',
+    '${insertData.etapa7.referenciaVendas}',
+    '${insertData.etapa7.nomeReferencia}',
+    '${insertData.etapa7.ambienteTrabalho}',
+    '${insertData.etapa7.outrosDetalhes}',
+    '${insertData.etapa7.notaConvivencia}',
+    '${insertData.etapa7.notaMaisModerna}',
+    '${insertData.etapa7.comoProspecta}'
+  )
+`;
+    db.query(sql, (err, result) => {
+        if(err){
+            console.error('Erro ao inserir respostas no Banco de Dados', err)
+        }
+        const resposta = { mensagem: 'Dados recebidos com sucesso!' };
+        res.json(resposta);
+    })
+});
+
+app.get('/pagina-de-sucesso-pesquisa', (req,res) => {
+    res.render('obrigadoCorretor')
+})
 
 app.get('/voce-em-interlagos', (req, res) => {
     res.render('index')

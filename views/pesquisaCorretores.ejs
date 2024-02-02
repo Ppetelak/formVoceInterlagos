@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa AllCross 2024 Corretores</title>
+    <link rel="shortcut icon" href="/img/FAVICON_ALLCROSS.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/pesquisaCorretor.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="fixed-top">
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="/img/logo-allcross.png" class="img-fluid" alt="Logo Allcross" width="15%">
+        </div>
+        <div class="progress mb-4">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="body">
+            <div class="container bg-white rounded">
+
+                <form id="formEtapa1" class="mt-5">
+                <div class="inicio">
+                    Oii, tudo bem com você?
+                    Como você já sabe, eu sou o <span>LeAll</span> da <span>AllCross</span> e eu queria muito melhorar a empresa para todos nós! <br><br>
+            
+                    E para isso, queria te fazer algumas perguntinhas, eu juro que leva apenas 5 minutos do seu tempo, e isso vai fazer diferença por vários anos! <br><br>
+            
+                    Sua identidade será preservada, o que te dá liberdade para ser o mais sincero possível!<br> <br>
+            
+                    <span>Vamos lá? </span>
+                </div>
+
+                <input type="hidden" value="Primeira Etapa" name="primeiraEtapa" id="primeiraEtapa">
+                
+                <div class="acoes justify-content-end">
+                    <button type="button" class="btn btn-primary" onclick="proximoEtapa(2)">Vamos começar?</button>
+                </div>
+                <div> 
+                    <img class="imgLeall" src="/img/Leall_bola pé lado 1.png">
+                </div>
+                </form>
+
+                <form id="formEtapa2" style="display: none;">
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 01 - </span>Responde pra mim, em qual região você está?</label> 
+                        <select class="form-select" name="regiao" id="regiao" required>
+                            <option selected disabled hidden>Selecione a região</option>
+                            <option value="Sul">Sul</option>
+                            <option value="Norte">Norte</option>
+                            <option value="Sudeste">Sudeste</option>
+                            <option value="Nordeste">Nordeste</option>
+                            <option value="Paraná">Paraná</option>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <label for="unidade" class="form-label"><span>02 - </span>E só para fins de organização, qual sua filial?</label> 
+                        <select class="form-select" name="unidade" id="unidade" required>
+                            <option selected disabled hidden>Selecione a unidade</option>
+                            <option>Amparo e Lopes / Curitiba - PR</option>
+                            <option>Andre de Barros - Curitiba - PR</option>
+                            <option>Azulcorr - Curitiba - PR</option>
+                            <option>Bethel - Curitiba - PR</option>
+                            <option>BRKR - Curitiba - PR</option>
+                            <option>Canal de Negócios - Curitiba - PR</option>
+                            <option>Cascavel - PR</option>
+                            <option>Fazenda Rio Grande - PR</option>
+                            <option>Foz do Iguaçu - PR</option>
+                            <option>Londrina - PR</option>
+                            <option>Maringá - PR</option>
+                            <option>Matriz / Curitiba - PR</option>
+                            <option>São José dos Pinhais - PR</option>
+                            <option>Toledo - PR</option>
+                            <option>Blumenau - SC</option>
+                            <option>BRKR Joinville - SC</option>
+                            <option>Floripa - SC</option>
+                            <option>Hannover Joinville - SC</option>
+                            <option>Ilha da Magia - SC</option>
+                            <option>Itajaí - SC</option>
+                            <option>Jaraguá do Sul - SC</option>
+                            <option>Joinville Colin - SC</option>
+                            <option>Joinville Principe - SC</option>
+                            <option>Capão da Canoa - RS</option>
+                            <option>Caxias do Sul - RS</option>
+                            <option>Porto Alegre - RS</option>
+                            <option>São Leopoldo - RS</option>
+                            <option>Belém - PA</option>
+                            <option>Campina Grande - PB</option>
+                            <option>João Pessoa - PB</option>
+                            <option>Caruaru - PE</option>
+                            <option>Recife - PE</option>
+                            <option>Espaço Corretor Recife - PE</option>
+                            <option>Fortaleza - CE</option>
+                            <option>Espaço Corretor Fortaleza - CE</option>
+                            <option>Macapá - AP</option>
+                            <option>Maceió - AL</option>
+                            <option>Natal - RN</option>
+                            <option>Espaço Corretor Natal - RN</option>
+                            <option>Porto Velho - RO</option>
+                            <option>São Luiz - MA</option>
+                            <option>Espaço Corretor São Luís - MA</option>
+                            <option>Teresina - PI</option>
+                            <option>Espaço Corretor Manaus – AM</option>
+                            <option>Espaço Corretor Salvador - BA</option>
+                            <option>Belo Horizonte - MG</option>
+                            <option>Espaço Corretor Belo Horizonte - MG</option>
+                            <option>Brasília - DF</option>
+                            <option>Cachoeiro De Itapemirim - ES</option>
+                            <option>Cuiabá - MT</option>
+                            <option>Goiânia - GO</option>
+                            <option>Vitória - ES</option>
+                            <option>São Paulo - SP</option>
+                            <option>Guaratinguetá - SP</option>
+                            <option>Aparecida - SP</option>
+                            <option>Espaço Corretor São Paulo - SP</option>
+                            <option>Espaço Corretor Rio De Janeiro – RJ</option>
+                            <option>Rio De Janeiro - RJ</option>
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <label for="idade" class="form-label"><span> 03 - </span>Qual é a sua idade?</label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade1" value="18-25" required>
+                            <label class="form-check-label" for="idade1">
+                                18-25
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade2" value="26-30">
+                            <label class="form-check-label" for="idade2">
+                                26-30
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade3" value="31-35">
+                            <label class="form-check-label" for="idade3">
+                                31-35 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade4" value="36-40">
+                            <label class="form-check-label" for="idade4">
+                                36-40 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade5" value="41-45">
+                            <label class="form-check-label" for="idade5">
+                                41-45 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade6" value="46-50">
+                            <label class="form-check-label" for="idade6">
+                                46-50
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade7" value="51-55">
+                            <label class="form-check-label" for="idade7">
+                                51-55 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="idade" id="idade8" value="56 ou mais">
+                            <label class="form-check-label" for="idade8">
+                                56 ou mais
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 04 - </span>Qual é seu gênero?</label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genero" id="genero1" value="Feminino" required>
+                            <label class="form-check-label" for="genero1">
+                                Feminino 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genero" id="genero2" value="Masculino">
+                            <label class="form-check-label" for="genero2">
+                                Masculino 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genero" id="genero3" value="Outro">
+                            <label class="form-check-label" for="genero3">
+                                Outro 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 05 - </span>Qual o teu nível escolar? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar1" value="Ensino fundamental completo ou incompleto" required>
+                            <label class="form-check-label" for="nivelEscolar1">
+                                Ensino fundamental completo ou incompleto
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar2" value="Ensino médio completo ou incompleto">
+                            <label class="form-check-label" for="nivelEscolar2">
+                                Ensino médio completo ou incompleto
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar3" value="Ensino superior">
+                            <label class="form-check-label" for="nivelEscolar3">
+                                Ensino superior
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar4" value="Pós-Graduado">
+                            <label class="form-check-label" for="nivelEscolar4">
+                                Pós-Graduado
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar5" value="Mestre">
+                            <label class="form-check-label" for="nivelEscolar5">
+                                Mestre 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="nivelEscolar" id="nivelEscolar6" value="Doutor">
+                            <label class="form-check-label" for="nivelEscolar6">
+                                Doutor
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 06 - </span>E sobre o seu estado civil? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estadoCivil" id="estadoCivil1" value="Solteiro(a)" required>
+                            <label class="form-check-label" for="estadoCivil1">
+                                Solteiro(a)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estadoCivil" id="estadoCivil2" value="Casado(a)" >
+                            <label class="form-check-label" for="estadoCivil2">
+                                Casado(a)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estadoCivil" id="estadoCivil3" value="Divorciado(a)" >
+                            <label class="form-check-label" for="estadoCivil3">
+                                Divorciado(a)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estadoCivil" id="estadoCivil4" value="Viúvo(a)" >
+                            <label class="form-check-label" for="estadoCivil4">
+                                Viúvo(a)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="estadoCivil" id="estadoCivil1" value="Separado(a) Judicialmente">
+                            <label class="form-check-label" for="estadoCivil1">
+                                Separado(a) Judicialmente
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 07 - </span>Você possui alguma deficiência (PCD)?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="possuiDeficiencia" id="possuiDeficiencia1" value="Sim" required>
+                            <label class="form-check-label" for="possuiDeficiencia1">
+                                Sim
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="possuiDeficiencia" id="possuiDeficiencia2" value="Não">
+                            <label class="form-check-label" for="possuiDeficiencia2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 08 - </span>Possui Plano de Saúde?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="possuiPlano" id="possuiPlano1" value="Sim" required>
+                            <label class="form-check-label" for="possuiPlano1">
+                                Sim
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="possuiPlano" id="possuiPlano2" value="Não">
+                            <label class="form-check-label" for="possuiPlano2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 09 - </span>Tem filhos?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos1" value="1" required>
+                            <label class="form-check-label" for="temFilhos1">
+                                1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos2" value="2">
+                            <label class="form-check-label" for="temFilhos2">
+                                2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos3" value="3">
+                            <label class="form-check-label" for="temFilhos3">
+                                3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos4" value="4">
+                            <label class="form-check-label" for="temFilhos4">
+                                4
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temFilhos" id="temFilhos5" value="5">
+                            <label class="form-check-label" for="temFilhos5">
+                                5 ou mais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 10 - </span>Tem animais de estimação? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temAnimais" id="temAnimais1" value="1" required>
+                            <label class="form-check-label" for="temAnimais1">
+                                1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temAnimais" id="temAnimais2" value="2">
+                            <label class="form-check-label" for="temAnimais2">
+                                2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temAnimais" id="temAnimais3" value="3">
+                            <label class="form-check-label" for="temAnimais3">
+                                3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temAnimais" id="temAnimais4" value="4">
+                            <label class="form-check-label" for="temAnimais4">
+                                2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="temAnimais" id="temAnimais5" value="5">
+                            <label class="form-check-label" for="temAnimais5">
+                                5 ou mais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="proximoEtapa(3)">Próxima Etapa</button>
+                    </div>
+                </form>
+
+                <form id="formEtapa3" style="display: none;">
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 11 - </span> Quantos membros tem na sua casa? (número de pessoas que moram com você)  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasCasa" id="pessoasCasa1" value="1" required>
+                            <label class="form-check-label" for="pessoasCasa1">
+                                Moro sozinho
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasCasa" id="pessoasCasa2" value="2">
+                            <label class="form-check-label" for="pessoasCasa2">
+                                2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasCasa" id="pessoasCasa3" value="3">
+                            <label class="form-check-label" for="pessoasCasa3">
+                                3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasCasa" id="pessoasCasa4" value="4">
+                            <label class="form-check-label" for="pessoasCasa4">
+                                4
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasCasa" id="pessoasCasa5" value="5">
+                            <label class="form-check-label" for="pessoasCasa5">
+                                5 ou mais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 12 - </span> Quantas pessoas na sua casa possuem Plano de Saúde? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasComPlano" id="pessoasComPlano1" value="Nenhuma" required>
+                            <label class="form-check-label" for="pessoasComPlano1">
+                                Nenhuma
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasComPlano" id="pessoasComPlano2" value="Menos da metade" required>
+                            <label class="form-check-label" for="pessoasComPlano2">
+                                Menos da metade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasComPlano" id="pessoasComPlano3" value="Mais da metade" required>
+                            <label class="form-check-label" for="pessoasComPlano3">
+                                Mais da metade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pessoasComPlano" id="pessoasComPlano4" value="Todas" >
+                            <label class="form-check-label" for="pessoasComPlano4">
+                                Todas
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regiao" class="form-label"><span> 13 - </span> Me conta você possui casa própria? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="casaPropria" id="casaPropria1" value="Casa" required>
+                            <label class="form-check-label" for="casaPropria1">
+                                Casa
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="casaPropria" id="casaPropria2" value="Apartamento" required>
+                            <label class="form-check-label" for="casaPropria2">
+                                Apartamento
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 14 - </span> Você trabalha na AllCross há quantos anos?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosAllcross" id="qtsAnosAllcross1" value="Menos de 1 ano" required>
+                            <label class="form-check-label" for="qtsAnosAllcross1">
+                                Menos de 1 ano
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosAllcross" id="qtsAnosAllcross2" value="1 a 2 anos">
+                            <label class="form-check-label" for="qtsAnosAllcross2">
+                                1 a 2 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosAllcross" id="qtsAnosAllcross3" value="2 a 4 anos">
+                            <label class="form-check-label" for="qtsAnosAllcross3">
+                                2 a 4 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosAllcross" id="qtsAnosAllcross4" value="5 a 7 anos">
+                            <label class="form-check-label" for="qtsAnosAllcross4">
+                                5 a 7 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosAllcross" id="qtsAnosAllcross5" value="10 ou mais">
+                            <label class="form-check-label" for="qtsAnosAllcross5">
+                                10 ou mais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 15 - </span> Você já saiu da AllCross e voltou? Quntas vezes? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jaSaiu" id="jaSaiu1" value="Sim, uma vez" required>
+                            <label class="form-check-label" for="jaSaiu1">
+                                Sim, uma vez
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jaSaiu" id="jaSaiu2" value="Sim, mais de uma vez" >
+                            <label class="form-check-label" for="jaSaiu2">
+                                Sim, mais de uma vez
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jaSaiu" id="jaSaiu3" value="Não" >
+                            <label class="form-check-label" for="jaSaiu3">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 16 - </span> Há quanto tempo você está aqui?  (Contando todas às vezes que você já trabalhou aqui)  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosTotalAllcross" id="qtsAnosTotalAllcross1" value="Menos de 1 ano" required>
+                            <label class="form-check-label" for="qtsAnosTotalAllcross1">
+                                Menos de 1 ano
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosTotalAllcross" id="qtsAnosTotalAllcross2" value="1 a 2 anos">
+                            <label class="form-check-label" for="qtsAnosTotalAllcross2">
+                                1 a 2 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosTotalAllcross" id="qtsAnosTotalAllcross3" value="2 a 4 anos">
+                            <label class="form-check-label" for="qtsAnosTotalAllcross3">
+                                2 a 4 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosTotalAllcross" id="qtsAnosTotalAllcross4" value="5 a 7 anos">
+                            <label class="form-check-label" for="qtsAnosTotalAllcross4">
+                                5 a 7 anos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qtsAnosTotalAllcross" id="qtsAnosTotalAllcross5" value="10 ou mais">
+                            <label class="form-check-label" for="qtsAnosTotalAllcross5">
+                                10 ou mais
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 17 - </span> Que tipo de corretor você é?   </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoCorretor" id="tipoCorretor1" value="Freelancer" required>
+                            <label class="form-check-label" for="tipoCorretor1">
+                                Freelancer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoCorretor" id="tipoCorretor2" value="Repasse" required>
+                            <label class="form-check-label" for="tipoCorretor2">
+                                Repasse
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoCorretor" id="tipoCorretor3" value="Internos" required>
+                            <label class="form-check-label" for="tipoCorretor3">
+                                Internos
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 18 - </span> Qual ferramenta você utiliza para trabalhar?   </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ferramentaTrabalho" id="ferramentaTrabalho1" value="Tenho computador próprio" required>
+                            <label class="form-check-label" for="ferramentaTrabalho1">
+                                Tenho computador próprio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ferramentaTrabalho" id="ferramentaTrabalho2" value="Tenho computador próprio, mas utilizo o da empresa " required>
+                            <label class="form-check-label" for="ferramentaTrabalho2">
+                                Tenho computador próprio, mas utilizo o da empresa 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ferramentaTrabalho" id="ferramentaTrabalho3" value="Não tenho computador próprio e utilizo o computador da empresa" required>
+                            <label class="form-check-label" for="ferramentaTrabalho3">
+                                Não tenho computador próprio e utilizo o computador da empresa
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ferramentaTrabalho" id="ferramentaTrabalho4" value="Trabalho pelo celular " required>
+                            <label class="form-check-label" for="ferramentaTrabalho4">
+                                Trabalho pelo celular 
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 19 - </span> E no seu dia a dia, você utiliza mais…   </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qualFerramentaMaisUsa" id="qualFerramentaMaisUsa1" value="Computador " required>
+                            <label class="form-check-label" for="qualFerramentaMaisUsa1">
+                                Computador
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="qualFerramentaMaisUsa" id="qualFerramentaMaisUsa2" value="Celular">
+                            <label class="form-check-label" for="qualFerramentaMaisUsa2">
+                                Celular
+                            </label>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 20 - </span> De cima para baixo arraste as opções classificando qual seu principal meio de comunicação interna? (empresa e colaboradores)</label>
+                        <ul id="comunicacaoInterna" class="sortable">
+                            <li class="ui-state-default"></span>WhatsApp</li>
+                            <li class="ui-state-default"></span>Chamada de Voz</li>
+                            <li class="ui-state-default"></span>Chamada de Vídeo </li>
+                            <li class="ui-state-default"></span>E-mail</li>
+                        </ul>
+                    </div>
+
+                    <input type="hidden" id="comunicacaoInternaOrdem" name="comunicacaoInternaOrdem" value="WhatsApp, Chamada de Voz, Chamada de Vídeo, Email">       
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="proximoEtapa(4)">Próxima Etapa</button>
+                    </div>
+                </form>
+
+                <form id="formEtapa4" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label"><span> 21 - </span> De cima para baixo arraste as opções classificando qual seu principal meio de comunicação externa? (clientes)</label>
+                        <ul id="comunicacaoExterna" class="sortable">
+                            <li class="ui-state-default"></span>WhatsApp</li>
+                            <li class="ui-state-default"></span>Chamada de Voz</li>
+                            <li class="ui-state-default"></span>Chamada de Vídeo </li>
+                            <li class="ui-state-default"></span>E-mail </li>
+                            <li class="ui-state-default"></span>Redes Sociais </li>
+                        </ul>
+                    </div>
+
+                    <input type="hidden" id="comunicacaoExternaOrdem" name="comunicacaoExternaOrdem" value="WhatsApp, Chamada de Voz, Chamada de Vídeo, Email">  
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 22 - </span> De cima para baixo arraste as opções classificando quais mídias mais consome?</label>
+                        <ul id="midiasConsome" class="sortable">
+                            <li class="ui-state-default"></span>Instagram </li>
+                            <li class="ui-state-default"></span>Facebook </li>
+                            <li class="ui-state-default"></span>TikTok  </li>
+                            <li class="ui-state-default"></span>Twitter  </li>
+                            <li class="ui-state-default"></span>LinkedIn </li>
+                            <li class="ui-state-default"></span>Telegram  </li>
+                            <li class="ui-state-default"></span>Pinterest </li>
+                        </ul>
+                    </div>
+
+                    <input type="hidden" id="midiasConsomeOrdem" name="midiasConsomeOrdem" value="Instagram, Facebook, TikTok, Twitter, LinkedIn, Telegram, Pinterest"> 
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 23 - </span> Qual seu meio de locomoção? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao1" value="Ônibus" required>
+                            <label class="form-check-label" for="meioLocomocao1">
+                                Ônibus
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao2" value="Carro">
+                            <label class="form-check-label" for="meioLocomocao2">
+                                Carro
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao3" value="Aplicativos de transporte">
+                            <label class="form-check-label" for="meioLocomocao3">
+                                Aplicativos de transporte
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao4" value="Á pé">
+                            <label class="form-check-label" for="meioLocomocao4">
+                                Á pé
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao5" value="Moto">
+                            <label class="form-check-label" for="meioLocomocao5">
+                                Moto
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="meioLocomocao" id="meioLocomocao6" value="Bicicleta">
+                            <label class="form-check-label" for="meioLocomocao6">
+                                Bicicleta
+                            </label>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 24 - </span> E sobre o Home Office? Você faz? Com qual frequência? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="homeOffice" id="homeOffice1" value="Sim, 1 a 2 vezes por semana " required>
+                            <label class="form-check-label" for="homeOffice1">
+                                Sim, 1 a 2 vezes por semana 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="homeOffice" id="homeOffice2" value="Sim, mais de 2 vezes por semana ">
+                            <label class="form-check-label" for="homeOffice2">
+                                Sim, mais de 2 vezes por semana 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="homeOffice" id="homeOffice3" value="Não">
+                            <label class="form-check-label" for="homeOffice3">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 25 - </span> Eu me sinto motivado quando me ajudam. E você? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="motivadoQuando" id="motivadoQuando1" value="Quando recebe um presente" required>
+                            <label class="form-check-label" for="motivadoQuando1">
+                                Quando recebe um presente
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="motivadoQuando" id="motivadoQuando2" value="Quando o seu líder te dá atenção">
+                            <label class="form-check-label" for="motivadoQuando2">
+                                Quando o seu líder te dá atenção
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="motivadoQuando" id="motivadoQuando3" value="Quando você recebe um elogio">
+                            <label class="form-check-label" for="motivadoQuando3">
+                                Quando você recebe um elogio
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="motivadoQuando" id="motivadoQuando4" value="Recebe um abraço ">
+                            <label class="form-check-label" for="motivadoQuando4">
+                                Recebe um abraço 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="motivadoQuando" id="motivadoQuando5" value="Te ajudam em questões profissionais">
+                            <label class="form-check-label" for="motivadoQuando5">
+                                Te ajudam em questões profissionais
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="proximoEtapa(5)">Próxima Etapa</button>
+                    </div>
+                </form>
+
+                <form id="formEtapa5" style="display: none;">
+                    <p> Agora sobre seus hábitos </p>
+                    <div class="form-group">
+                        <label class="form-label"><span> 26 - </span> Você faz exercícios físicos? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exerciciosFisicos" id="exerciciosFisicos1" value="Sim" required>
+                            <label class="form-check-label" for="exerciciosFisicos1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exerciciosFisicos" id="exerciciosFisicos2" value="Não">
+                            <label class="form-check-label" for="exerciciosFisicos2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 27 - </span> Você gosta de ler? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaLer" id="gostaLer1" value="Sim" required>
+                            <label class="form-check-label" for="gostaLer1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaLer" id="gostaLer2" value="Não">
+                            <label class="form-check-label" for="gostaLer2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 28 - </span> Você viaja com frequência? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="viajaFrequencia" id="viajaFrequencia1" value="Não viajo " required>
+                            <label class="form-check-label" for="viajaFrequencia1">
+                                Não viajo 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="viajaFrequencia" id="viajaFrequencia2" value="1 a 2 vezes no ano" required>
+                            <label class="form-check-label" for="viajaFrequencia2">
+                                1 a 2 vezes no ano
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="viajaFrequencia" id="viajaFrequencia3" value="3 a 5 vezes no ano" required>
+                            <label class="form-check-label" for="viajaFrequencia3">
+                                3 a 5 vezes no ano
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="viajaFrequencia" id="viajaFrequencia4" value="mais de 6 vezes no ano" required>
+                            <label class="form-check-label" for="viajaFrequencia4">
+                                mais de 6 vezes no ano
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 29 - </span> Quero saber de você, quais estilos musicais você consome? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Sertanejo" id="estilosMusicais1">
+                            <label class="form-check-label" for="estilosMusicais1">
+                                Sertanejo
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Forró" id="estilosMusicais2">
+                            <label class="form-check-label" for="estilosMusicais2">
+                                Forró 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Samba" id="estilosMusicais3">
+                            <label class="form-check-label" for="estilosMusicais3">
+                                Samba
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Bossa Nova" id="estilosMusicais4">
+                            <label class="form-check-label" for="estilosMusicais4">
+                                Bossa Nova
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Funk" id="estilosMusicais5">
+                            <label class="form-check-label" for="estilosMusicais5">
+                                Funk
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Rap" id="estilosMusicais6">
+                            <label class="form-check-label" for="estilosMusicais6">
+                                Rap
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="MPB" id="estilosMusicais7">
+                            <label class="form-check-label" for="estilosMusicais7">
+                                MPB
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Rock" id="estilosMusicais8">
+                            <label class="form-check-label" for="estilosMusicais8">
+                                Rock
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="estilosMusicais" value="Pop" id="estilosMusicais9">
+                            <label class="form-check-label" for="estilosMusicais9">
+                                Pop
+                            </label>
+                        </div>
+                
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 30 - </span> Você gosta de estudar? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaEstudar" id="gostaEstudar1" value="Sim" required>
+                            <label class="form-check-label" for="gostaEstudar1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaEstudar" id="gostaEstudar2" value="Não">
+                            <label class="form-check-label" for="gostaEstudar2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 31 - </span> Você gosta de passear no shopping? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaPassearShopping" id="gostaPassearShopping1" value="Sim" required>
+                            <label class="form-check-label" for="gostaPassearShopping1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaPassearShopping" id="gostaPassearShopping2" value="Não">
+                            <label class="form-check-label" for="gostaPassearShopping2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 32 - </span> E sobre drogas lícitas, você usa? (cigarro e álcool) </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sobreDrogasLicitas" id="sobreDrogasLicitas1" value="Sim, ambos" required>
+                            <label class="form-check-label" for="sobreDrogasLicitas1">
+                                Sim, ambos
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sobreDrogasLicitas" id="sobreDrogasLicitas2" value="Sim, apenas bebidas alcoólicas">
+                            <label class="form-check-label" for="sobreDrogasLicitas2">
+                                Sim, apenas bebidas alcoólicas
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sobreDrogasLicitas" id="sobreDrogasLicitas3" value="Sim, apenas cigarro ">
+                            <label class="form-check-label" for="sobreDrogasLicitas3">
+                                Sim, apenas cigarro 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sobreDrogasLicitas" id="sobreDrogasLicitas4" value="Não">
+                            <label class="form-check-label" for="sobreDrogasLicitas4">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 33 - </span> Todo conhecimento é válido. Você gosta de assistir a filmes e séries? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaFilmes" id="gostaFilmes1" value="Sim" required>
+                            <label class="form-check-label" for="gostaFilmes1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gostaFilmes" id="gostaFilmes2" value="Não">
+                            <label class="form-check-label" for="gostaFilmes2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 34 - </span> Você tem costume de ir ao cinema?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="vaiCinema" id="vaiCinema1" value="Sim" required>
+                            <label class="form-check-label" for="vaiCinema1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="vaiCinema" id="vaiCinema2" value="Não">
+                            <label class="form-check-label" for="vaiCinema2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 35 - </span> Você gosta de atividades ao ar livre?  </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="atividadeArLivre" id="atividadeArLivre1" value="Sim" required>
+                            <label class="form-check-label" for="atividadeArLivre1">
+                                Sim
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="atividadeArLivre" id="atividadeArLivre2" value="Não">
+                            <label class="form-check-label" for="atividadeArLivre2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="proximoEtapa(6)">Próxima Etapa</button>
+                    </div>
+                </form>
+
+                <form id="formEtapa6" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label" for="notaLideranca"><span> 37 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com sua liderança?</label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaLideranca" name="notaLideranca" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaMotivacao"><span> 38 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você se sente motivado?</label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaMotivacao" name="notaMotivacao" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaInfraestrutura"><span> 39 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com nossa infraestrutura?</label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaInfraestrutura" name="notaInfraestrutura" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaQualidadeLead"><span> 40 - </span>De 1 a 10, sendo 1 pouco e 10 muito, qual a qualidade do lead que chega para você?</label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaQualidadeLead" name="notaQualidadeLead" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaPremiacoes"><span> 41 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com nossas premiações?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaPremiacoes" name="notaPremiacoes" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaSuporte"><span> 42 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com o suporte que prestamos a você?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaSuporte" name="notaSuporte" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaTreinamentos"><span> 43 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com os treinamentos que oferecemos a você?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaTreinamentos" name="notaTreinamentos" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaPertencimento"><span> 44 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você sente que pertence ao time AllCross?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaPertencimento" name="notaPertencimento" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaEventos"><span> 45 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você está satisfeito com os eventos que participa da AllCross?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaEventos" name="notaEventos" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaRecomendaria"><span> 46 - </span>De 1 a 10, sendo 1 pouco e 10 muito,  o quanto você recomendaria a AllCross para um amigo trabalhar aqui?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaRecomendaria" name="notaRecomendaria" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaRecomendariaProdutos"><span> 47 - </span>De 1 a 10, sendo 1 pouco e 10 muito,  o quanto você recomendaria a AllCross para um amigo utilizar nossos produtos?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaRecomendariaProdutos" name="notaRecomendariaProdutos" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="proximoEtapa(7)">Próxima Etapa</button>
+                    </div>
+                </form>
+
+                <form id="formEtapa7" style="display: none;">
+                    <p> Represento todos no grupo AllCross quando digo que queremos potencializar suas vendas. Nos ajude a melhorar seu desempenho respondendo essas perguntinhas!  </p>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 48 - </span>Como conheceu a AllCross?</label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="comoConheceu" id="comoConheceu1" value="Redes Sociais" required>
+                            <label class="form-check-label" for="comoConheceu1">
+                                Redes Sociais
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="comoConheceu" id="comoConheceu2" value="Anúncios">
+                            <label class="form-check-label" for="comoConheceu2">
+                                Anúncios
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="comoConheceu" id="comoConheceu3" value="Indicação de conhecidos">
+                            <label class="form-check-label" for="comoConheceu3">
+                                Indicação de conhecidos
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Escreve um pouco mais pra gente" id="produtoAfinidade" style="height: 200px"></textarea>
+                        <label for="produtoAfinidade" class="form-label"><span>49 - </span>Qual produto sente mais afinidade em vender?</label>
+                        <span class="contadorCaracteres text-muted" id="contador1">0/250</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 48 - </span>Você tem alguém como referência de venda?</label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="referenciaVendas" id="referenciaVendas1" value="Sim" required>
+                            <label class="form-check-label" for="referenciaVendas1">
+                                Sim. Quem?
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="referenciaVendas" id="referenciaVendas2" value="Não">
+                            <label class="form-check-label" for="referenciaVendas2">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="campoReferencia" class="mb-3" style="display: none;">
+                        <label for="nomeReferencia">Quem é a pessoa referência em vendas pra você?</label>
+                        <input type="text" class="form-control" id="nomeReferencia" name="nomeReferencia">
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Escreve um pouco mais pra gente" id="interesseVendas" style="height: 200px"></textarea>
+                        <label for="interesseVendas" class="form-label"><span>51 - </span>Em poucas palavras, responda: Qual assunto mais te interessa para estudar em vendas?</label>
+                        <span class="contadorCaracteres text-muted" id="contador2">0/150</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 52 - </span> Um ambiente confortável é sempre bom, né? O que não pode faltar no seu ambiente de trabalho? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Café e água " id="ambienteTrabalho1">
+                            <label class="form-check-label" for="ambienteTrabalho1">
+                                Café e água 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Bons equipamentos" id="ambienteTrabalho2">
+                            <label class="form-check-label" for="ambienteTrabalho2">
+                                Bons equipamentos 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Micro-ondas" id="ambienteTrabalho3">
+                            <label class="form-check-label" for="ambienteTrabalho3">
+                                Micro-ondas
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Espaço para descanso" id="ambienteTrabalho4">
+                            <label class="form-check-label" for="ambienteTrabalho4">
+                                Espaço para descanso
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Espaço para lazer" id="ambienteTrabalho5">
+                            <label class="form-check-label" for="ambienteTrabalho5">
+                                Espaço para lazer
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Materiais de escritório" id="ambienteTrabalho6">
+                            <label class="form-check-label" for="ambienteTrabalho6">
+                                Materiais de escritório
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ambienteTrabalho" value="Outros" id="ambienteTrabalho7">
+                            <label class="form-check-label" for="ambienteTrabalho7">
+                                Outros
+                            </label>
+                        </div>
+
+                        <div class="form-group" id="campoOutros" style="display: none;">
+                            <label for="outrosDetalhes">Diga o que mais não pode faltar:</label>
+                            <input type="text" class="form-control" id="outrosDetalhes" name="outrosDetalhes">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaConvivencia"><span> 53 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você gosta de trabalhar em convivência com seus colegas?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaConvivencia" name="notaConvivencia" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="notaMaisModerna"><span> 54 - </span>De 1 a 10, sendo 1 pouco e 10 muito, o quanto você se sentiria motivado em trabalhar em um ambiente mais moderno?
+                        </label>
+                        <div class="range">
+                            <input type="range" class="form-range" id="notaMaisModerna" name="notaMaisModerna" min="0" max="10" step="0"> <span class="notaAtual">5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><span> 55 - </span> Como você prospecta os seus leads? </label> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="comoProspecta" value="Redes Sociais" id="comoProspecta1">
+                            <label class="form-check-label" for="comoProspecta1">
+                                Redes Sociais 
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="comoProspecta" value="Indicações" id="comoProspecta2">
+                            <label class="form-check-label" for="comoProspecta2">
+                                Indicações
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="comoProspecta" value="Abordagem pessoal" id="comoProspecta3">
+                            <label class="form-check-label" for="comoProspecta3">
+                                Abordagem pessoal
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="comoProspecta" value="Ligação" id="comoProspecta4">
+                            <label class="form-check-label" for="comoProspecta4">
+                                Ligação
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="acoes fixed-bottom">
+                        <button type="button" class="btn btn-secondary ml-auto" onclick="etapaAnterior()">Etapa Anterior</button>        
+                        <button type="button" class="btn btn-primary mr-3" onclick="enviar()">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>      
+<script src="/js/scriptPesquisaCorretores.js"></script>
+</html>

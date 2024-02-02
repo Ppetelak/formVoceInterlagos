@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.sortable { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    width: 60%; 
+}
+
+.sortable li { 
+    margin: 0 3px 3px 3px; 
+    padding-top: 5px; 
+    padding-left: 1em; 
+    font-size: 1em; 
+    height: 38px; 
+}
+
+.sortable li span { 
+    position: absolute; 
+    margin-left: -1.3em; 
+}
+
+.ui-state-default {
+    border: 1px solid #004D8C;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.body {
+    width: 700px;
+}
+
+.container-fluid{
+    min-height: 100vh;
+}
+
+.form-check .form-check-input {
+    border-color: #004D8C;
+}
+
+.acoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.form-label{
+    font-weight: bold;
+}
+
+form {
+    margin-top: 70px;
+}
+
+form .form-label span{
+    color:#004D8C;
+}
+
+.container {
+    max-width: 90%;
+    padding: 3rem;
+}
+
+.form-group {
+    padding: 1rem;
+}
+
+.progress-bar {
+    background-color: #007bff; /* cor de destaque da barra de progresso */
+}
+
+.inicio{
+    background: #D9D9D9;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.inicio span{
+    color: #004D8C;
+    font-weight: bold;
+}
+
+.imgLeall {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    /* transform: translate(100%); */
+}
+
+.fixed-top {
+    background: #ffffff;
+    padding: 10px;
+    background: #eeeeee;
+}
+
+.fixed-bottom {
+    background: #eeeeee;
+    padding: 10px;
+}
+
+.range {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.range input {
+    width: 90%;
+}
+
+.range span {
+    width: 10%;
+}
+
+form p {
+    margin-top: 5rem;
+}
+
+.notaAtual {
+    background: #D9D9D9;
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 90%;
+    }
+    .container-fluid {
+        padding: 1rem;
+    }
+    body {
+        height: auto;
+    }
+    .imgLeall {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 10%;
+        /* transform: translate(100%); */
+    }
+    .ui-sortable-handle {
+        touch-action: manipulation;
+    }
+  }
