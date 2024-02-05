@@ -101,7 +101,7 @@ function validarCampo(campo) {
     var radioGroup = campo.form.querySelectorAll(`[name="${campo.name}"]:checked`);
     return radioGroup.length > 0;
   } else {
-    return campo.value.trim() !== ''; // Verifica se o valor não é vazio após remover espaços em branco
+    return campo.value.trim() !== '';
   }
 }
 
@@ -110,12 +110,12 @@ function validaCamposObrigatorios(camposObrigatorios) {
 
   for (let i = 0; i < camposObrigatorios.length; i++) {
     if (!validarCampo(camposObrigatorios[i])) {
-      alert('Preencha todos os dados obrigatórios');
-      return false; // Interrompe o loop e retorna false se encontrar um campo inválido
+      alert('Todos os campos são obrigatórios, verifique e preencha antes de avançar para próxima etapa ou enviar o formulário');
+      return false; 
     }
   }
 
-  return true; // Retorna true se todos os campos foram validados com sucesso
+  return true;
 }
 
 
@@ -218,30 +218,3 @@ function coletarDados(formId, etapa) {
   console.log(dadosGerais)
 }
 
-function validarCamposObrigatorios(formId) {
-  
-  console.log('Entrou aqui na função de validação dos termos, validando o form' +  formId);
-  const form = document.getElementById(formId);
-  const camposObrigatorios = form.querySelectorAll('[required]');
-
-  for (const campo of camposObrigatorios) {
-    if (campo.type === 'radio') {
-      const radioGroup = form.querySelector(`[name="${campo.name}"]:checked`);
-      if (!radioGroup) {
-        alert(`Por favor, selecione uma opção para o campo obrigatório: ${campo.name}`);
-        return false;
-      }
-    } else if (campo.type === 'select-one') {
-      if (campo.selectedIndex === 0) {
-        alert(`Por favor, selecione uma opção para o campo obrigatório: ${campo.name}`);
-        return false;
-      }
-    } else {
-      if (!campo.value.trim()) {
-        alert(`Por favor, preencha todos os campos obrigatórios antes de prosseguir: ${campo.name}`);
-        return false;
-      }
-    }
-  }
-  return true;
-}
