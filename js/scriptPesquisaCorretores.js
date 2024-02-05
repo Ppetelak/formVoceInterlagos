@@ -1,4 +1,5 @@
 let etapaAtual = 1;
+let etapaAnterior = 0;
 let dadosGerais = {};
 
 $(document).ready(function () {
@@ -71,38 +72,64 @@ $(function () {
 });
 
 function proximoEtapa(proximaEtapa) {
-  
-  if (!validarCamposObrigatorios(`formEtapa${etapaAtual}`)) {
-    // Se a validação falhar, exiba uma mensagem de erro ou tome outra ação necessária
-    alert('Por favor, preencha todos os campos obrigatórios antes de prosseguir.');
-    return;
-  }
-  document.getElementById(`formEtapa${etapaAtual}`).style.display = 'none';
+
+  etapaAnterior = proximaEtapa - 1;
   etapaAtual = proximaEtapa;
-  etapaColeta = proximaEtapa -1;
-  document.getElementById(`formEtapa${etapaAtual}`).style.display = 'block';
+  let form = document.getElementById(`formEtapa${etapaAnterior}`);
+  let camposObrigatorios = form.querySelectorAll("[required]");
+  let validacao = validaCamposObrigatorios(camposObrigatorios);
+  //let validacao = true;
 
-  if (etapaAtual < 8) {
-    coletarDados(`formEtapa${etapaColeta}`, etapaColeta);
-  }
-
-  const progresso = (etapaAtual - 1) * (100 / 7);
-  document.querySelector('.progress-bar').style.width = `${progresso}%`;
-
-  window.scrollTo(0, 0);
+  if(validacao === true){
+    document.getElementById(`formEtapa${etapaAnterior}`).style.display = 'none';
+    document.getElementById(`formEtapa${etapaAtual}`).style.display = 'block';
+    if (etapaAnterior < 8) {
+      coletarDados(`formEtapa${etapaAnterior}`, etapaAnterior);
+    }
+  
+    const progresso = (etapaAtual) * (100 / 7);
+    document.querySelector('.progress-bar').style.width = `${progresso}%`;
+  
+    window.scrollTo(0, 0);
+  }  
 }
 
-function etapaAnterior() {
-  if (etapaAtual > 1) {
-    document.getElementById(`formEtapa${etapaAtual}`).style.display = 'none';
-    etapaAtual--;
-    document.getElementById(`formEtapa${etapaAtual}`).style.display = 'block';
-
-    const progresso = (etapaAtual - 1) * (100 / 7);
-    document.querySelector('.progress-bar').style.width = `${progresso}%`;
-
-    window.scrollTo(0, document.body.scrollHeight);
+function validarCampo(campo) {
+  if (campo.type === 'select-one') {
+    return campo.selectedIndex !== 0;
+  } else if (campo.type === 'radio') {
+    var radioGroup = campo.form.querySelectorAll(`[name="${campo.name}"]:checked`);
+    return radioGroup.length > 0;
+  } else {
+    return campo.value.trim() !== ''; // Verifica se o valor não é vazio após remover espaços em branco
   }
+}
+
+function validaCamposObrigatorios(camposObrigatorios) {
+  console.log(camposObrigatorios);
+
+  for (let i = 0; i < camposObrigatorios.length; i++) {
+    if (!validarCampo(camposObrigatorios[i])) {
+      alert('Preencha todos os dados obrigatórios');
+      return false; // Interrompe o loop e retorna false se encontrar um campo inválido
+    }
+  }
+
+  return true; // Retorna true se todos os campos foram validados com sucesso
+}
+
+
+
+function mudarEtapaAnterior(etapaAnterior) {
+  let etapaEsconder = etapaAnterior + 1
+  etapaAtual = etapaAtual - 1;
+  document.getElementById(`formEtapa${etapaEsconder}`).style.display = 'none';
+  document.getElementById(`formEtapa${etapaAnterior}`).style.display = 'block';
+
+  const progresso = (etapaAtual) * (100 / 7);
+  document.querySelector('.progress-bar').style.width = `${progresso}%`;
+
+  window.scrollTo(0, document.body.scrollHeight);
 }
 
 
@@ -138,29 +165,35 @@ function setupContadorCaracteres(textAreaId, contadorId, maxCaracteres) {
   });
 }
 
-function enviar() {
+function enviar(ultimaEtapa) {
   console.log('Foi clicado em enviar');
-  coletarDados("formEtapa7", 7);
+  let form = document.getElementById(`formEtapa${ultimaEtapa}`);
+  let camposObrigatorios = form.querySelectorAll("[required]");
+  let validacao = validaCamposObrigatorios(camposObrigatorios);
 
-  var dadosJSON = JSON.stringify(dadosGerais);
-  console.log(dadosJSON);
-  $.ajax({
-    type: 'POST',
-    url: '/recebePesquisa',
-    contentType: 'application/json',
-    data: dadosJSON,
-    success: function(response) {
-      console.log('Dados enviados com sucesso:', response);
-      // Se a resposta contiver uma mensagem de sucesso, redirecione para a página desejada
-      if (response && response.mensagem === 'Dados recebidos com sucesso!') {
-        window.location.href = '/pagina-de-sucesso-pesquisa'; // Substitua '/pagina-de-sucesso' pelo URL desejado
+  if(validacao === true) {
+    coletarDados("formEtapa7", 7);
+  
+    var dadosJSON = JSON.stringify(dadosGerais);
+    console.log(dadosJSON);
+    $.ajax({
+      type: 'POST',
+      url: '/recebePesquisa',
+      contentType: 'application/json',
+      data: dadosJSON,
+      success: function(response) {
+        console.log('Dados enviados com sucesso:', response);
+        // Se a resposta contiver uma mensagem de sucesso, redirecione para a página desejada
+        if (response && response.mensagem === 'Dados recebidos com sucesso!') {
+          window.location.href = '/pagina-de-sucesso-pesquisa'; // Substitua '/pagina-de-sucesso' pelo URL desejado
+        }
+      },
+      error: function(error) {
+        console.error('Erro ao enviar dados:', error);
+        alert('Erro ao enviar dados. Por favor, tente novamente.');
       }
-    },
-    error: function(error) {
-      console.error('Erro ao enviar dados:', error);
-      alert('Erro ao enviar dados. Por favor, tente novamente.');
-    }
-  });
+    });
+  }
 }
 
 function coletarDados(formId, etapa) {
@@ -182,34 +215,33 @@ function coletarDados(formId, etapa) {
   });
 
   dadosGerais['etapa' + etapa] = dadosEtapa;
+  console.log(dadosGerais)
 }
 
 function validarCamposObrigatorios(formId) {
-  const form = document.getElementById(formId);
-  const camposObrigatorios = form.querySelectorAll('[data-required="true"]');
   
+  console.log('Entrou aqui na função de validação dos termos, validando o form' +  formId);
+  const form = document.getElementById(formId);
+  const camposObrigatorios = form.querySelectorAll('[required]');
+
   for (const campo of camposObrigatorios) {
     if (campo.type === 'radio') {
-      // Para campos de radio, pelo menos um deve ser selecionado
       const radioGroup = form.querySelector(`[name="${campo.name}"]:checked`);
       if (!radioGroup) {
-        alert('Por favor, selecione uma opção para o campo obrigatório.');
+        alert(`Por favor, selecione uma opção para o campo obrigatório: ${campo.name}`);
         return false;
       }
     } else if (campo.type === 'select-one') {
-      // Para selects, uma opção diferente de seleção padrão deve ser escolhida
       if (campo.selectedIndex === 0) {
-        alert('Por favor, selecione uma opção para o campo obrigatório.');
+        alert(`Por favor, selecione uma opção para o campo obrigatório: ${campo.name}`);
         return false;
       }
     } else {
-      // Para outros campos de entrada de texto, verifica se o valor está vazio
       if (!campo.value.trim()) {
-        alert('Por favor, preencha todos os campos obrigatórios antes de prosseguir.');
+        alert(`Por favor, preencha todos os campos obrigatórios antes de prosseguir: ${campo.name}`);
         return false;
       }
     }
   }
-
   return true;
 }
